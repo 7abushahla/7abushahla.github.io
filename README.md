@@ -1,2 +1,6 @@
-# 7abushahla.github.io
-7abushahla.github.io
+# Computer Engineering Student
+
+### Education
+Bsc, COE
+
+### Projects
