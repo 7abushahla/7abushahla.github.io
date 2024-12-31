@@ -8,7 +8,7 @@ course: Senior Design Project
 author: "Hamza Ahmed Abushahla"
 authors: "<strong>Hamza Abushahla</strong>, Ghanim Al-Ali, Sultan Abdalla, Muhammad Ismail Sadaqat, Mohamed AlHajri, Taha Landolsi"
 code: https://github.com/7abushahla/spectrum-sensing-sdp
-pdf: https://github.com/7abushahla/spectrum-sensing-sdp/paper.pdf
+paper: https://github.com/7abushahla/spectrum-sensing-sdp/paper.pdf
 poster: https://github.com/7abushahla/spectrum-sensing-sdp/poster.pdf
 slides: https://github.com/7abushahla/spectrum-sensing-sdp/slides.pdf
 ---
