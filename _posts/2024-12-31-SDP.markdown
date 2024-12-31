@@ -3,8 +3,8 @@ layout: post
 title:  "Cognitive Radio Spectrum Sensing and Allocation: A Low-Complexity Deep Learning Approach"
 date:   2024-05-04 09:00:00 +00:00
 image: /images/SDP.png
-categories: American University of Sharjah
-course: Senior Design Project
+categories: "American University of Sharjah"
+course: "Senior Design Project"
 author: "Hamza Ahmed Abushahla"
 authors: "<strong>Hamza Abushahla</strong>, Ghanim Al-Ali, Sultan Abdalla, Muhammad Ismail Sadaqat, Mohamed AlHajri, Taha Landolsi"
 code: https://github.com/7abushahla/spectrum-sensing-sdp
