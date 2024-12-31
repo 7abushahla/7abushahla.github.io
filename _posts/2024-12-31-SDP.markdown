@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Cognitive Radio Spectrum Sensing and Allocation: A Low-Complexity Deep Learning Approach"
+date:   2024-05-04 09:00:00 +00:00
+image: /images/SDP.png
+categories: other
+author: "Hamza Ahmed Abushahla"
+authors: "<strong>Hamza Abushahla</strong>, Ghanim Al-Ali, Sultan Abdalla, Muhammad Ismail Sadaqat, Mohamed AlHajri, Taha Landolsi"
+venue: "American University of Sharjah Senior Design Project"
+code: https://github.com/7abushahla/spectrum-sensing-sdp
+pdf: https://github.com/7abushahla/spectrum-sensing-sdp/paper.pdf
+poster: https://github.com/7abushahla/spectrum-sensing-sdp/poster.pdf
+slides: https://github.com/7abushahla/spectrum-sensing-sdp/slides.pdf
+---
+This was my B.Sc. in Computer Engineering Senior Design Project...
