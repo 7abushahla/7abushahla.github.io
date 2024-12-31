@@ -7,7 +7,7 @@ categories: AUS
 course: Senior Design Project
 author: "Hamza Ahmed Abushahla"
 authors: "<strong>Hamza Abushahla</strong>, Ghanim Al-Ali, Sultan Abdalla, Muhammad Ismail Sadaqat, Mohamed AlHajri, Taha Landolsi"
-code: https://github.com/7abushahla/Spectrum-Sensing-SDP/code
+code: https://github.com/7abushahla/Spectrum-Sensing-SDP/
 paper: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Final_Report.pdf
 poster: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Poster.pdf
 slides: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Slides.pptx
