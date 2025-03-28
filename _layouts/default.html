@@ -216,7 +216,7 @@
             </td>
             <td style="padding:1%; width:75%; vertical-align:middle;">
               <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
+              <p style="margin:0;">{{post.authors}}
               <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
               {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
               {% if post.code %}[<a href="{{ post.code }}">Code</a>]{% endif %}
