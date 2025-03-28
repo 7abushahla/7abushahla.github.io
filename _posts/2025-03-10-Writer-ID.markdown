@@ -5,7 +5,7 @@ date:   2025-03-10 09:00:00 +00:00
 image: /images/Writer-ID.png
 categories: submitted
 author: "Hamza A. Abushahla"
-authors: "<strong>Hamza A. Abushahla<sup>*</sup></strong>, Ariel Justine Navarro Panopio<sup>*</sup></strong>, Layth Al-Khairulla<sup>*</sup></strong>, Mohamed I. AlHajri"
+authors: "<strong>Hamza A. Abushahla*</strong>, Ariel Justine Navarro Panopio*</strong>, Layth Al-Khairulla*</strong>, Mohamed I. AlHajri"
 venue: "Expert Systems with Applications"
 paper: https://www.sciencedirect.com/journal/expert-systems-with-applications
 code: https://github.com/7abushahla/Muharaf-Writer-Identification
