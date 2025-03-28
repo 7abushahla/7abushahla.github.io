@@ -1,0 +1,14 @@
+---
+layout: post
+title:  " Different Strokes for Different Folks: Writer Identification for Historical Arabic Manuscripts"
+date:   2025-03-10 09:00:00 +00:00
+image: /images/QAT-Radio-Sensing.png
+categories: submitted
+author: "Hamza A. Abushahla"
+authors: "<strong>Hamza A. Abushahla</strong>, Ariel Justine Navarro Panopio, Layth Al-Khairulla, Mohamed I. AlHajri"
+venue: "Expert Systems with Applications"
+paper: https://www.sciencedirect.com/journal/expert-systems-with-applications
+code: https://github.com/7abushahla/Muharaf-Writer-Identification
+---
+
+We develop an end-to-end CNN-based system for line-level writer identification in historical Arabic manuscripts using the Muharaf Dataset.
