@@ -209,7 +209,7 @@
         <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
           {% for post in site.posts %}
           {% for cat in post.categories %}
-          {% if cat == 'other' %}
+          {% if cat != 'published' and cat != 'accepted' and cat != 'submitted' %}
           <tr>
             <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
               <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
