@@ -7,7 +7,7 @@ categories: accepted
 author: "Hamza Ahmed Abushahla"
 authors: "<strong>Hamza Abushahla</strong>, Rana Gharaibeh, Lodan Elmugamer, Ali Reza Sajun, Imran A. Zualkernan"
 venue: "IEEE Global Engineering Education Conference (EDUCON)"
-paper: https://2025.ieee-educon.org
+paper: https://drive.google.com/file/d/1KoL_a4rTv7IeIJCVkHPAHavAMq6UMNKv/view?usp=share_link
 code: https://github.com/7abushahla/Student-Engagement
 ---
 This work explores the deployment of deep learning models on resource-constrained edge devices to monitor student engagement in real time, with an emphasis on efficiency and privacy.
