@@ -7,7 +7,7 @@ categories: submitted
 author: "Hamza A. Abushahla"
 authors: "<strong>Hamza A. Abushahla</strong>, Dara Varam, Mohamed I. AlHajri"
 venue: "IEEE Communications Letters"
-paper: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=4234
+paper: https://drive.google.com/file/d/1zb0cksvRPfQgSWjZsN8PiHxkJQFv_8Nz/view?usp=share_link
 code: https://github.com/7abushahla/Spectrum-Sensing
 ---
 
