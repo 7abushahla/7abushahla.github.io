@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Cognitive Radio Spectrum Sensing on the Edge: A Quantization-Aware Deep Learning Approach"
-date:   2025-25-06 09:00:00 +00:00
+date:   2025-25-06 00:00:00 +00:00
 image: /images/QAT-Radio-Sensing.png
 categories: published 
 author: "Hamza A. Abushahla"
