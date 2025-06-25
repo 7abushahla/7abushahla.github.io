@@ -2,7 +2,7 @@
 layout: post
 title:  "Navigate Without Forgetting: Continual Reinforcement Learning for Mobile Robot Navigation in Webots"
 date:   2025-05-20 09:00:00 +00:00
-image: /images/image.png
+image: /images/webots-CRL.png
 categories: AUS
 course: MLR555 Project
 author: "Hamza Ahmed Abushahla"
