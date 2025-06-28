@@ -20,274 +20,224 @@
 
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:60%;vertical-align:middle">
-              <h1>
-                Hamza Ahmed Abushahla
-              </h1>
-              <p>
-                I'm a Master's student in Machine Learning at the <a href="https://www.aus.edu">American University of Sharjah</a>, where I also earned my B.Sc. in Computer Engineering and a minor in Engineering Management.</p>
-              <p>
-                I currently work as a research and teaching assistant in the <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">department of Computer Science and Engineering</a>. My research focuses mainly on model compression, optimizaztion and quantization for deploying neural networks on resource-constrained edge devices. Additionally, I explore energy-efficient computing and intelligent autonomous robotics.
-              </p>
-                
-              <p style="text-align:center">
-                <a target="_blank" href="mailto:hamzaahmed.ha24@gmail.com">Email</a> &nbsp;|&nbsp;
-                <a target="_blank" href="pdfs/cv.pdf">CV</a> &nbsp;|&nbsp;
-                <a href="https://www.linkedin.com/in/hamza-abushahla/">LinkedIn</a> &nbsp;|&nbsp;
-                <a href="https://github.com/7abushahla">GitHub</a> &nbsp;|&nbsp;
-                <a href="https://scholar.google.com/citations?user=ivPsj5gAAAAJ&hl=en">Scholar</a>
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <img style="width:95%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/profile_image_compressed.jpg">
-            </td>
-          </tr>
-        </table>
+  <div class="container">
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="profile-content">
+        <div class="profile-text">
+          <h1>Hamza Ahmed Abushahla</h1>
+          <p>I'm a Master's student in Machine Learning at the <a href="https://www.aus.edu">American University of Sharjah</a>, where I also earned my B.Sc. in Computer Engineering and a minor in Engineering Management.</p>
+          <p>I currently work as a research and teaching assistant in the <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">department of Computer Science and Engineering</a>. My research focuses mainly on model compression, optimization and quantization for deploying neural networks on resource-constrained edge devices. Additionally, I explore energy-efficient computing and intelligent autonomous robotics.</p>
+        </div>
+        <div class="profile-image">
+          <img src="images/profile_image_compressed.jpg" alt="Hamza Ahmed Abushahla">
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="mailto:hamzaahmed.ha24@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="pdfs/cv.pdf"><i class="fas fa-file-alt"></i> CV</a>
+        <a href="https://www.linkedin.com/in/hamza-abushahla/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/7abushahla"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?user=ivPsj5gAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Scholar</a>
+      </div>
+    </section>
 
-        <!-- Publications Section (More Compact) -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Publications</h2>
-              <p style="margin:5px 0 0 0;">These are papers that have already been published.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
+    <!-- Publications Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Publications</h2>
+        <p>These are papers that have already been published.</p>
+      </div>
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'published' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">Code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">Webpage</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue">
+              {% if post.venue %}
+                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+              {% elsif post.course %}
+                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
+              {% else %}
+                {{ post.date | date: "%Y" }}
+              {% endif %}
+            </p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
           {% endif %}
           {% endfor %}
           {% endfor %}
-        </table>
+    </section>
 
-        <br>
-
-        <!-- Accepted Papers Section (More Compact) -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Accepted Papers</h2>
-              <p style="margin:5px 0 0 0;">These are papers that have been accepted for publication, but are not yet up.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
+    <!-- Accepted Papers Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Accepted Papers</h2>
+        <p>These are papers that have been accepted for publication, but are not yet up.</p>
+      </div>
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'accepted' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">Code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">Webpage</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue">
+              {% if post.venue %}
+                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+              {% elsif post.course %}
+                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
+              {% else %}
+                {{ post.date | date: "%Y" }}
+              {% endif %}
+            </p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
           {% endif %}
           {% endfor %}
           {% endfor %}
-        </table>
+    </section>
 
-        <br>
-
-        <!-- Submitted Papers Section (More Compact) -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Submitted Papers</h2>
-              <p style="margin:5px 0 0 0;">These are papers that have been submitted for publication, but have not yet been released.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
+    <!-- Submitted Papers Section -->
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Submitted Papers</h2>
+        <p>These are papers that have been submitted for publication, but have not yet been released.</p>
+      </div>
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'submitted' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}<br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">Code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">Webpage</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue">
+              {% if post.venue %}
+                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+              {% elsif post.course %}
+                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
+              {% else %}
+                {{ post.date | date: "%Y" }}
+              {% endif %}
+            </p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
           {% endif %}
           {% endfor %}
           {% endfor %}
-        </table>
-
-        <br>
+    </section>
         
         <!-- Research Projects Section -->
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
-          <tr>
-            <td style="padding:1%; width:100%; vertical-align:middle;">
-              <h2 style="margin:0 0 5px 0;">Research Projects</h2>
-              <p style="margin:5px 0 0 0;">These include coursework, side projects and unpublished research work.</p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
-          <tr>
-            <td style="padding:0;"><hr style="margin: 5px 0;"></td>
-          </tr>
-        </table>
-        <table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin: 5px auto;">
+    <section class="publications-section">
+      <div class="section-header">
+        <h2>Research Projects</h2>
+        <p>These include coursework, side projects and unpublished research work.</p>
+      </div>
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat != 'published' and cat != 'accepted' and cat != 'submitted' %}
-          <tr>
-            <td style="padding:1%; width:25%; vertical-align:middle; min-width:120px;">
-              <img src="{{ post.image }}" alt="project image" style="width:auto; height:auto; max-width:100%;">
-            </td>
-            <td style="padding:1%; width:75%; vertical-align:middle;">
-              <h3 style="margin:0 0 5px 0;">{{post.title}}</h3>
-              <p style="margin:0;">{{post.authors}}
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}<br>
-              {% if post.arxiv %}[<a href="{{ post.arxiv }}">arxiv</a>]{% endif %}
-              {% if post.code %}[<a href="{{ post.code }}">Code</a>]{% endif %}
-              {% if post.video %}[<a href="{{ post.video }}">Video</a>]{% endif %}
-              {% if post.paper %}[<a href="{{ post.paper }}">Paper</a>]{% endif %}
-              {% if post.poster %}[<a href="{{ post.poster }}">Poster</a>]{% endif %}
-              {% if post.slides %}[<a href="{{ post.slides }}">Slides</a>]{% endif %}
-              {% if post.website %}[<a href="{{ post.website }}">Webpage</a>]{% endif %}
-              {% if post.youtube %}[<a href="{{ post.youtube }}">YouTube</a>]{% endif %}
-              {% if post.pdf %}[<a href="{{ post.pdf }}">PDF</a>]{% endif %}</p>
-              <p style="margin:0;">{{ post.excerpt }}</p>
-            </td>
-          </tr>
+      <div class="publication-card">
+        <div class="pub-content">
+          <img src="{{ post.image }}" alt="project image" class="pub-image">
+          <div class="pub-details">
+            <h3>{{post.title}}</h3>
+            <p class="authors">{{post.authors}}</p>
+            <p class="venue">
+              {% if post.venue %}
+                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+              {% elsif post.course %}
+                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
+              {% else %}
+                {{ post.date | date: "%Y" }}
+              {% endif %}
+            </p>
+            <div class="paper-links">
+              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
+              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
+            </div>
+            <p class="abstract">{{ post.excerpt }}</p>
+          </div>
+        </div>
+      </div>
           {% endif %}
           {% endfor %}
           {% endfor %}
-        </table>
-
-        <br>
-        <br>
+    </section>
 
 <!-- Miscellanea Section -->
-<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:5px;">
-  <tr>
-    <td><h2 style="margin:0;">Miscellanea</h2></td>
-  </tr>
-</table>
-<!-- Horizontal rule for Miscellanea -->
-<table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin:0 auto;">
-  <tr><td style="padding:0;"><hr></td></tr>
-</table>
-<table style="width:100%; border:0; border-spacing:0; border-collapse:separate; margin:5px auto;">
-  <tr>
-    <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
-      <div style="border:1px solid #ccc; border-radius:4px; padding:8px;">
-        <h2 style="margin:0;">Teaching Assistantships</h2>
+    <section class="misc-section">
+      <div class="section-header">
+        <h2>Miscellanea</h2>
       </div>
-    </td>
-    <td style="padding:8px; width:80%; vertical-align:middle;">
-      - <strong>[Software]</strong> CMP120 – Programming I, CMP220 – Programming II, CMP305 – Data Structures &amp; Algorithms, CMP321 – Programming Languages<br>
-      - <strong>[Hardware]</strong> COE425 – Modern Computer Organization<br>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" style="padding:8px; width:20%; vertical-align:middle;">
-      <div style="border:1px solid #ccc; border-radius:4px; padding:8px;">
-        <h2 style="margin:0;">Awards &amp; Honors</h2>
+      <div class="misc-card">
+        <h3>Teaching Assistantships</h3>
+        <ul>
+          <li><strong>Software:</strong> CMP120 – Programming I, CMP220 – Programming II, CMP305 – Data Structures & Algorithms, CMP321 – Programming Languages</li>
+          <li><strong>Hardware:</strong> COE425 – Modern Computer Organization</li>
+        </ul>
       </div>
-    </td>
-    <td style="padding:8px; width:80%; vertical-align:middle;">
-      - 2nd place at the AUS College of Engineering senior design projects competition<br>
-      - Full scholarship for undergraduate studies awarded by Ministry of Presidential Affairs, UAE<br>
-      - Member of the <a href="https://hkn.ieee.org/">IEEE-Eta Kappu Nu</a> Honors Society<br>
-    </td>
-  </tr>
-</table>
+      <div class="misc-card">
+        <h3>Awards & Honors</h3>
+        <ul>
+          <li>2nd place at the AUS College of Engineering senior design projects competition</li>
+          <li>Full scholarship for undergraduate studies awarded by Ministry of Presidential Affairs, UAE</li>
+          <li>Member of the <a href="https://hkn.ieee.org/">IEEE-Eta Kappu Nu</a> Honors Society</li>
+        </ul>
+      </div>
+    </section>
 
-
-        <hr>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:center;font-size:small;">
-                Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website</a>
-              </p>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+    <footer>
+      <p>Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of <a href="https://jonbarron.info">Jon Barron's website</a></p>
+    </footer>
+  </div>
 </body>
 
 </html>
