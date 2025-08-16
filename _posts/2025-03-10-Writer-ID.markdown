@@ -11,4 +11,4 @@ paper: https://link.springer.com/journal/10032
 code: https://github.com/7abushahla/Muharaf-Writer-Identification
 ---
 
-We manually verified and labeled a substantial chunk of the public portion of the Muharaf dataset, enhancing its applicability for supervised learning and writer identification. We developed an end-to-end CNN-based DL system with attention mechanisms for line-level writer identification in historical Arabic handwritten manuscripts using this labeled Muharaf Dataset, accommodating up to two authors per line.
+In this work, we manually verified and labeled a substantial chunk of the public portion of the Muharaf dataset, enhancing its applicability for supervised learning and writer identification. We developed an end-to-end CNN-based DL system with attention mechanisms for line-level writer identification in historical Arabic handwritten manuscripts using this labeled Muharaf Dataset, accommodating up to two authors per line.
