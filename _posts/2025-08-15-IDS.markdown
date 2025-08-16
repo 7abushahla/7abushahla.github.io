@@ -5,7 +5,7 @@ date:   2025-08-15 09:00:00 +00:00
 image: /images/IDS.jpg
 categories: submitted
 author: "Hamza A. Abushahla"
-authors: "<strong>Ariel J. N. Panopio</strong>, Hamza A. Abushahla, Youssef Elmadany, Abdulaziz Alqasimi, Ali Reza Sajun, Sameer Alawnah, Fadi Aloul, Imran Zualkernan"
+authors: "Ariel J. N. Panopio, <strong>Hamza A. Abushahla</strong>, Youssef Elmadany, Abdulaziz Alqasimi, Ali Reza Sajun, Sameer Alawnah, Fadi Aloul, Imran Zualkernan"
 venue: "IEEE Internet of Things Journal"
 paper: https://github.com/7abushahla/RT-IoT2022
 code: https://github.com/7abushahla/RT-IoT2022
