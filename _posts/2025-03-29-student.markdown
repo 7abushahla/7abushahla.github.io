@@ -5,7 +5,7 @@ date:   2025-03-25 09:00:00 +00:00
 image: /images/student.png
 categories: published
 author: "Hamza Ahmed Abushahla"
-authors: "<strong>Hamza Abushahla</strong>, Rana Gharaibeh, Lodan Elmugamer, Ali Reza Sajun, Imran A. Zualkernan"
+authors: "<strong>Hamza A. Abushahla</strong>, Rana Gharaibeh, Lodan Elmugamer, Ali Reza Sajun, Imran A. Zualkernan"
 venue: "IEEE Global Engineering Education Conference (EDUCON)"
 paper: https://ieeexplore.ieee.org/document/11016436
 code: https://github.com/7abushahla/Student-Engagement
