@@ -7,7 +7,7 @@ categories: "submitted"
 author: "Hamza A. Abushahla"
 authors: "<strong>Hamza A. Abushahla</strong>, Dara Varam, Ariel J. N. Panopio, and Mohamed I. AlHajri"
 venue: "Proceedings of the IEEE"
-website: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5
+paper: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5
 code:
 ---
 
