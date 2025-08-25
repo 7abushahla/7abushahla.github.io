@@ -8,6 +8,7 @@ author: "Hamza A. Abushahla"
 authors: "<strong>Hamza A. Abushahla</strong>, Dara Varam, Ariel J. N. Panopio, and Mohamed I. AlHajri"
 venue: "Proceedings of the IEEE"
 paper: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5
+arxiv: https://arxiv.org/abs/2508.15008
 code:
 ---
 
