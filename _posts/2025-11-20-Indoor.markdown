@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Sub-Millisecond, Microjoule Edge Inference for Indoor Environment Classification via Layer-Wise Mixed-Precision Quantization"
-date:   2025-08-15 09:00:00 +00:00
+date:   2025-11-20 09:00:00 +00:00
 image: /images/Indoor.jpg
 categories: submitted
 author: "Hamza A. Abushahla"
