@@ -6,7 +6,7 @@ image: /images/webots-CRL.png
 categories: AUS
 course: MLR555 Project
 author: "Hamza Ahmed Abushahla"
-authors: "<strong>Hamza Abushahla</strong>, Ariel Justine Panopio, Layth Al-Khairulla"
+authors: "<strong>Hamza Abushahla</strong>, Ariel Justine Panopio, Layth Al-Khairulla, and Omar Arif"
 code: https://github.com/7abushahla/Continual-RL-Webots/
 paper: 
 ---
