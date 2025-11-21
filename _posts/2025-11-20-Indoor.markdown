@@ -5,7 +5,7 @@ date:   2025-11-20 09:00:00 +00:00
 image: /images/Indoor.jpg
 categories: submitted
 author: "Hamza A. Abushahla"
-authors: "<strong>Hamza A. Abushahla</strong>, Muhammed Noshin, Mohamed I. AlHajri, Mohamed I. AlHajri, Nazar T. Ali"
+authors: "<strong>Hamza A. Abushahla</strong>, Muhammed Noshin, Mohamed I. AlHajri, and Nazar T. Ali"
 venue: "IEEE Internet of Things Journal"
 paper: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6488907
 code: https://github.com/M-Noshin/Indoor-Environment-Quantization
