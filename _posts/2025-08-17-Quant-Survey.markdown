@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Quantized Neural Networks for Microcontrollers: A Comprehensive Review of Methods, Platforms, and Applications"
+title:  "Neural Network Quantization for Microcontrollers: A Comprehensive Review of Methods, Platforms, and Applications"
 date:   2025-08-17 09:00:00 +00:00
 image: /images/Quant-Review.jpg
 categories: "submitted"
 author: "Hamza A. Abushahla"
 authors: "<strong>Hamza A. Abushahla</strong>, Dara Varam, Ariel J. N. Panopio, and Mohamed I. AlHajri"
-venue: "Proceedings of the IEEE"
+venue: "IEEE Access"
 paper: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5
 arxiv: https://arxiv.org/abs/2508.15008
 code:
