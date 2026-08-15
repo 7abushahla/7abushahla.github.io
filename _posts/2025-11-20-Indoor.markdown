@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Sub-Millisecond, Microjoule Edge Inference for Indoor Environment Classification via Layer-Wise Mixed-Precision Quantization"
+title:  "Sub-Millisecond, Microjoule Edge Inference for Indoor Environment Identification via Layer-Wise Mixed-Precision Quantization"
 date:   2026-07-06 09:00:00 +00:00
 image: /images/Indoor.jpg
 categories: published
