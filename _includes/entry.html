@@ -18,7 +18,7 @@
   <div class="entry-mark{% if e.logos %} entry-mark-pair{% endif %}{% if e.logo_size %} entry-mark-{{ e.logo_size }}{% endif %}">
     {% if e.logos %}
       {% for l in e.logos %}
-        <img class="logo-light" src="{{ l.src | relative_url }}" alt="{{ l.alt }} logo" title="{{ l.alt }}" loading="lazy">
+        <img class="logo-light{% if l.src_dark %} has-dark{% endif %}" src="{{ l.src | relative_url }}" alt="{{ l.alt }} logo" title="{{ l.alt }}" loading="lazy">
         {% if l.src_dark %}<img class="logo-dark" src="{{ l.src_dark | relative_url }}" alt="{{ l.alt }} logo" title="{{ l.alt }}" loading="lazy">{% endif %}
       {% endfor %}
     {% elsif e.logo %}

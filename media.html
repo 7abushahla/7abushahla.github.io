@@ -31,10 +31,14 @@ permalink: /media/
 
             <div class="entry-body">
               <h3 class="entry-title">
-                {% if m.title_ar %}<span class="ar" lang="ar" dir="rtl">{{ m.title_ar }}</span>{% endif %}
+                {% if m.title_ar %}
+                  <span class="ar" lang="ar" dir="rtl">{{ m.title_ar }}</span>
+                {% else %}
+                  {{ m.title_en }}
+                {% endif %}
                 {% if m.season %}<span class="entry-client mono">{{ m.season }}</span>{% endif %}
               </h3>
-              {% if m.title_en %}<p class="entry-unit">{{ m.title_en }}</p>{% endif %}
+              {% if m.title_ar and m.title_en %}<p class="entry-unit">{{ m.title_en }}</p>{% endif %}
               <p class="entry-role">
                 {{ m.outlet }}
                 {%- if m.role %} <span class="entry-sep">·</span> {{ m.role }}{% endif %}
@@ -42,7 +46,19 @@ permalink: /media/
               </p>
               {% if m.hosts %}<p class="entry-meta mono">With {{ m.hosts }}</p>{% endif %}
               {% if m.body %}<p class="entry-desc">{{ m.body }}</p>{% endif %}
-              {% if m.url %}<div class="links"><a href="{{ m.url }}">Listen / watch</a></div>{% endif %}
+              {% if m.url %}
+                <div class="links">
+                  <a href="{{ m.url }}">
+                    {%- if g == 'press' -%}
+                      <i class="fa-solid fa-newspaper" aria-hidden="true"></i>Read
+                    {%- elsif g == 'tv' -%}
+                      <i class="fa-solid fa-tv" aria-hidden="true"></i>Watch
+                    {%- else -%}
+                      <i class="fa-solid fa-headphones" aria-hidden="true"></i>Listen
+                    {%- endif -%}
+                  </a>
+                </div>
+              {% endif %}
             </div>
           </article>
         {% endfor %}

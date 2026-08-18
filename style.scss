@@ -416,18 +416,19 @@ a {
    equal width it stands taller and reads as the larger of the two. Trim it. */
 .entry-wide .entry-mark-pair img:last-child { width: 85%; }
 
-/* Theme-specific artwork: show one, hide the other. */
+/* Theme-specific artwork: swap only the marks that actually ship a variant. */
 .logo-dark { display: none; }
-:root[data-theme="dark"] .logo-light:not(:only-of-type) { display: none; }
+:root[data-theme="dark"] .has-dark { display: none; }
 :root[data-theme="dark"] .logo-dark { display: block; }
 
 /* Dark-ink marks would disappear on the dark canvas, so give them a plate. */
 :root[data-theme="dark"] .entry-mark img {
   background: #fff;
   padding: 4px;
+  border-radius: 3px;
 }
 
-:root[data-theme="dark"] .entry-wide .entry-mark img {
+:root[data-theme="dark"] .entry-mark img.logo-dark {
   background: none;
   padding: 0;
 }

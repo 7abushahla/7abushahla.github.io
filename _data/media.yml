@@ -67,12 +67,42 @@ podcast:
       On the links between AI and climate change, energy-efficient computing
       and sustainability.
 
-# Newspaper and magazine coverage. Append entries here as:
-#   - title_en: ...
-#     title_ar: ...
-#     outlet: ...
-#     from: Mon YYYY
-#     url: https://...
-#     body: >-
-#       ...
-press: []
+# Newspaper and magazine coverage.
+press:
+  - title_en: "Are you passionate about college and career goals?"
+    outlet: Khaleej Times
+    logo: /images/logos/khaleejtimes.svg
+    logo_layout: wide
+    role: Author — opinion column
+    from: Aug 2022
+    url: https://www.khaleejtimes.com/opinion/are-you-passionate-about-college-and-career-goals
+    body: >-
+      An opinion column arguing that high-school juniors and seniors should
+      seek out varied experiences and reflect on them before committing to a
+      college major — that finding what you care about has to come before
+      choosing where to study it.
+
+  - title_ar: "مثقفون وزوار: قمّة اللغة العربية منصة تواصل ملهمة"
+    title_en: "Intellectuals and visitors: the Arabic Language Summit is an inspiring platform"
+    outlet: Al Ittihad
+    logo: /images/logos/aletihad.svg
+    outlet_ar: الاتحاد
+    role: Quoted
+    from: Dec 2022
+    url: https://www.aletihad.ae/news/%D8%AB%D9%82%D8%A7%D9%81%D8%A9/4339665
+    body: >-
+      Quoted in coverage of the Arabic Language Summit on how cultural events
+      reinforce identity and give Arabic a footing in global intellectual life.
+
+  - title_ar: "المسار المتقدم التقني: تخصصاتنا المستقبلية داعم قوي لتوجهات الإمارات"
+    title_en: "The Advanced Technical Track: our future specialisations strongly support the UAE's direction"
+    outlet: Al Bayan
+    logo: /images/logos/albayan.svg
+    outlet_ar: البيان
+    role: Featured
+    from: Jul 2020
+    url: https://www.albayan.ae/across-the-uae/education/2020-07-10-1.3908155
+    body: >-
+      Featured as one of six outstanding students of the Advanced Technical
+      Track on finishing high school, on choosing computer engineering and on
+      what the move to electronic examinations taught about self-directed study.
