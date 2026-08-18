@@ -843,40 +843,66 @@ a {
 
 /* ── responsive ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr 220px; gap: 36px; }
+  .hero-grid { grid-template-columns: 1fr 200px; gap: 36px; }
   .kv { grid-template-columns: 1fr; gap: 0; }
   .kv dd { border-top: 0; padding-top: 0; }
+  .pub { grid-template-columns: var(--date-col) 140px 1fr; }
 }
 
 @media (max-width: 760px) {
-  :root { --gutter: 20px; --gap: 16px; --mark-col: 96px; }
+  :root { --gutter: 20px; --gap: 16px; --mark-col: 84px; }
 
+  .band { padding: 40px 0; }
+  .section-head { margin-bottom: 20px; }
+
+  /* Masthead collapses to wordmark + controls, with the nav on its own row. */
   .nav-toggle { display: inline-block; order: 3; }
   .theme-toggle { order: 4; }
+  .masthead-in { gap: 12px; }
 
   .nav {
     order: 5;
     flex-basis: 100%;
     display: none;
-    padding: 14px 0 4px;
+    padding: 10px 0 6px;
     border-top: 1px solid var(--rule);
     margin-top: 12px;
   }
 
   .nav.is-open { display: block; }
-  .nav ul { flex-direction: column; gap: 14px; }
 
-  .hero-grid { grid-template-columns: 1fr; gap: 26px; }
+  .nav ul { flex-direction: column; gap: 0; }
+
+  /* Full-width rows give a comfortable tap target rather than a text-sized one. */
+  .nav a {
+    display: block;
+    padding: 11px 0;
+    font-size: 1rem;
+    border-bottom: 0;
+  }
+
+  .nav a[aria-current="page"] { color: var(--live); }
+
+  .hero { padding: 34px 0 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 22px; }
 
   /* Stacked, the portrait belongs above the text — not stranded below the
      link rail at the bottom of the page. */
-  .hero-portrait { order: -1; max-width: 160px; }
-  .hero { padding-top: 44px; }
-  .page-head { padding-top: 40px; }
+  .hero-portrait { order: -1; max-width: 148px; }
+  .hero-name { font-size: clamp(1.85rem, 8.5vw, 2.6rem); }
+  .hero-role { font-size: .95rem; }
+  .bio p { font-size: .98rem; }
+  .rail { margin-top: 26px; }
 
-  .entry, .pub, .cert-list li {
-    grid-template-columns: var(--mark-col) 1fr;
-  }
+  .page-head { padding: 34px 0 4px; }
+  .page-title { font-size: clamp(1.75rem, 8vw, 2.4rem); }
+
+  .entry, .cert-list li { grid-template-columns: var(--mark-col) 1fr; }
+
+  /* Publications go single-column: keeping the logo gutter left the text in a
+     narrow second column with dead space beside the figure. */
+  .pub { grid-template-columns: 1fr; gap: 12px; }
+  .pub-thumb { grid-column: 1; max-width: 100%; }
 
   /* Stacked end-over-start reads fine in a column, but collapsed onto one
      line a range must run chronologically — so flip it back visually here. */
@@ -894,11 +920,40 @@ a {
     span::after { content: " —"; color: var(--ink-2); }
   }
 
-  .cert-date { flex-direction: row; }
+  .cert-date { flex-direction: row; margin-bottom: 4px; }
   .cert-date span::after { content: none; }
+  .cert-issuer { grid-column: 1; }
 
-  .pub-thumb { grid-column: 1 / -1; max-width: 240px; }
-  .cert-issuer { grid-column: 2; }
+  .entry-mark img { width: 60px; height: 60px; }
+  .entry-mark-lg img { width: 76px; height: 76px; }
+  .entry-mark-pair img { width: 56px; height: 56px; }
+  .entry-wide { --mark-col: 132px; }
+  .monogram { width: 60px; height: 60px; }
+
+  .entry-desc, .pub-summary { font-size: .88rem; }
+
+  /* Mobile browsers mostly refuse to render PDFs inline, so keep the embed
+     short and let the download buttons do the work. */
+  .cv-viewer { height: 62vh; }
+  .cv-actions { margin: 30px 0 18px; }
+  .btn { padding: 12px 18px; }
+
+  .review-list li { gap: 8px; }
+  .review-count { margin-left: 0; }
+
+  .visitor-map { padding: 14px; }
+  .notfound { padding: 56px 0 40px; }
+}
+
+/* Smallest phones: stop the two-column entry grid from squeezing the text. */
+@media (max-width: 420px) {
+  :root { --gutter: 16px; }
+
+  .entry, .cert-list li { grid-template-columns: 1fr; gap: 10px; }
+  .entry-mark { margin-bottom: 2px; }
+  .entry-wide { --mark-col: 100%; }
+  .rail a { font-size: .82rem; padding: 7px 11px; }
+  .chip { font-size: .72rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
