@@ -1,0 +1,14 @@
+---
+layout: page
+title: Experience
+permalink: /experience/
+---
+
+{% for track in site.data.experience %}
+<section class="band">
+  {% include section.html title=track.track blurb=track.blurb id=track.id %}
+  <div class="entries">
+    {% for e in track.entries %}{% include entry.html e=e %}{% endfor %}
+  </div>
+</section>
+{% endfor %}

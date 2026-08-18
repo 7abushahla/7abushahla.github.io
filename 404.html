@@ -1,0 +1,21 @@
+---
+layout: default
+title: Page not found
+permalink: /404.html
+---
+
+<div class="shell">
+  <section class="notfound">
+    <p class="mono notfound-code">404</p>
+    <h1 class="notfound-title">That page doesn&rsquo;t exist.</h1>
+    <p class="notfound-text">
+      The link may be out of date, or the page may have moved. Everything on the
+      site is one click away:
+    </p>
+    <ul class="notfound-links">
+      {% for item in site.data.nav %}
+        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

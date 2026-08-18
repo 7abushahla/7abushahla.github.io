@@ -1,0 +1,62 @@
+---
+layout: default
+title: About
+---
+
+<div class="shell">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 class="hero-name">Hamza Ahmed Abushahla</h1>
+
+        {% comment %} Parked, not deleted — uncomment to bring the tagline back.
+        <p class="hero-tagline">I make neural networks small enough to run where there&rsquo;s no room for them.</p>
+        {% endcomment %}
+
+        <p class="hero-role">
+          Embedded Machine Learning Engineer at <strong>Kumrah AI</strong> &middot;
+          Visiting Researcher at <strong>ARIC</strong>, Khalifa University &middot;
+          Graduate Research Assistant and MSc student in Machine Learning at the
+          <strong>American University of Sharjah</strong>
+        </p>
+
+        <div class="bio">
+          <p>
+            I work at the intersection of machine learning, computer vision, and
+            resource-constrained computing — building and optimizing deep learning
+            systems for real-time deployment on edge devices, embedded platforms and
+            microcontrollers, with a focus on model compression, quantization, TinyML
+            and hardware-aware ML.
+          </p>
+          <p>
+            My interests span computer vision, edge AI, neuromorphic computing, the
+            Internet of Things, wireless communications, autonomous systems, and
+            aerospace and guidance technologies — especially where intelligent systems
+            have to operate under strict latency, memory, compute and power constraints.
+          </p>
+        </div>
+
+        <ul class="rail">
+          <li>
+            <a href="mailto:{{ site.data.links.email }}" title="Email">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Email</span>
+            </a>
+          </li>
+          {% for p in site.data.links.profiles %}
+            <li>
+              <a href="{{ p.url }}" rel="me noopener" title="{{ p.name }}">
+                <i class="{{ p.icon }}" aria-hidden="true"></i><span>{{ p.short }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="hero-portrait">
+        <img src="{{ site.avatar | relative_url }}" alt="{{ site.name }}" width="440" height="440">
+      </div>
+    </div>
+  </section>
+
+</div>

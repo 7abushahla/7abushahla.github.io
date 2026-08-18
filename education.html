@@ -1,0 +1,11 @@
+---
+layout: page
+title: Education
+permalink: /education/
+---
+
+<section class="band">
+  <div class="entries">
+    {% for ed in site.data.education %}{% include entry.html e=ed %}{% endfor %}
+  </div>
+</section>

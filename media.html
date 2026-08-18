@@ -1,0 +1,52 @@
+---
+layout: page
+title: Media
+permalink: /media/
+---
+
+{% assign groups = "radio,tv,podcast,press" | split: "," %}
+{% assign labels = "Radio,Television,Podcast,Press" | split: "," %}
+
+{% for g in groups %}
+  {% assign items = site.data.media[g] %}
+  {% assign label = labels[forloop.index0] %}
+  {% if items and items.size > 0 %}
+    <section class="band">
+      {% include section.html title=label id=g %}
+      <div class="entries">
+        {% for m in items %}
+          <article class="entry media-entry{% if m.logo_layout %} entry-{{ m.logo_layout }}{% endif %}">
+            <div class="entry-date mono">
+              {% if m.to and m.to != m.from %}<b>{{ m.to }}</b><span>{{ m.from }}</span>
+              {%- else -%}<b>{{ m.from }}</b>{% endif %}
+            </div>
+
+            <div class="entry-mark">
+              {% if m.logo %}
+                <img src="{{ m.logo | relative_url }}" alt="{{ m.outlet }} logo" title="{{ m.outlet }}" loading="lazy">
+              {% else %}
+                <span class="monogram">{% if m.episodes %}{{ m.episodes }}{% else %}·{% endif %}</span>
+              {% endif %}
+            </div>
+
+            <div class="entry-body">
+              <h3 class="entry-title">
+                {% if m.title_ar %}<span class="ar" lang="ar" dir="rtl">{{ m.title_ar }}</span>{% endif %}
+                {% if m.season %}<span class="entry-client mono">{{ m.season }}</span>{% endif %}
+              </h3>
+              {% if m.title_en %}<p class="entry-unit">{{ m.title_en }}</p>{% endif %}
+              <p class="entry-role">
+                {{ m.outlet }}
+                {%- if m.role %} <span class="entry-sep">·</span> {{ m.role }}{% endif %}
+                {%- if m.episodes %} <span class="entry-sep">·</span> {{ m.episodes }} episodes{% endif %}
+              </p>
+              {% if m.hosts %}<p class="entry-meta mono">With {{ m.hosts }}</p>{% endif %}
+              {% if m.body %}<p class="entry-desc">{{ m.body }}</p>{% endif %}
+              {% if m.url %}<div class="links"><a href="{{ m.url }}">Listen / watch</a></div>{% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,92 @@
+# Supporting CV material: honors, skills, coursework, certificates, interests.
+
+interests:
+  - Computer vision
+  - Edge AI
+  - Neuromorphic computing
+  - Model compression & quantization
+  - TinyML
+  - Internet of Things
+  - Wireless communications
+  - Autonomous systems
+  - Aerospace & guidance
+
+awards:
+  - title: UAE Presidential Scholarship
+    note: Recipient
+  - title: Dean's List
+    note: Spring 2022, Spring 2023, Spring 2024
+  - title: 2nd Place — AUS College of Engineering Senior Design Projects Competition
+  - title: IEEE-Eta Kappa Nu (HKN) International Honor Society
+    note: Member
+    url: https://hkn.ieee.org/
+  - title: Top 100 high school graduates in the UAE
+    note: "2020"
+
+skills:
+  - label: Programming
+    items: [C/C++, Python, Java, MATLAB, Verilog]
+  - label: Machine learning
+    items: [PyTorch, TensorFlow, Keras, NumPy, Pandas, Scikit-Learn, OpenCV]
+  - label: Tools
+    items: [Git, Bash, LaTeX, Visual Studio Code, Eclipse]
+  - label: Languages
+    items: ["English — fluent", "Arabic — native"]
+
+coursework:
+  - label: Graduate
+    items:
+      - Advanced Machine Learning
+      - Generative Deep Learning
+      - Data Mining
+      - Advanced AI
+      - Cloud Computing Infrastructure
+      - Tiny Machine Learning
+  - label: Undergraduate — major electives
+    items:
+      - Intelligent Autonomous Robotics
+      - Artificial Intelligence
+      - Computer Security
+      - Modern Computer Organization
+  - label: Mathematics
+    items:
+      - Calculus I & II
+      - Linear Algebra
+      - Probability & Statistics
+      - Discrete Mathematics
+      - Differential Equations
+  - label: Computer science & engineering
+    items:
+      - Data Structures & Algorithms
+      - Operating Systems
+      - Computer Architecture
+      - Microcontrollers
+      - Embedded Systems
+      - Circuits
+      - Electronics I & II
+      - Advanced Digital Systems
+  - label: Engineering management
+    items:
+      - Management for Engineers
+      - Engineering Project Management
+      - Engineering Economy
+
+certificates:
+  - title: Data Manipulation with Python
+    issuer: Optima
+    date: May 2025
+  - title: Machine Learning Specialization
+    issuer: Coursera — Stanford University
+    date: Jan 2025
+  - title: Mathematics for Machine Learning and Data Science
+    issuer: Coursera — DeepLearning.AI
+    date: Jan 2025
+  - title: "Python for Data Analysis: Pandas & NumPy"
+    issuer: Coursera — Coursera Project Network
+    date: Dec 2023
+  - title: Python Functions, Files, and Dictionaries
+    issuer: Coursera — University of Michigan
+    date: Dec 2023
+  - title: Python Data Structures
+    issuer: Coursera — University of Michigan
+    date: Dec 2023

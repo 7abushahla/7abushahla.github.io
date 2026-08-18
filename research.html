@@ -1,0 +1,46 @@
+---
+layout: page
+title: Research
+permalink: /research/
+---
+
+{% assign published = site.publications | where: "status", "published" | sort: "date" | reverse %}
+{% assign accepted  = site.publications | where: "status", "accepted"  | sort: "date" | reverse %}
+{% assign submitted = site.publications | where: "status", "submitted" | sort: "date" | reverse %}
+{% assign projects  = site.publications | where: "status", "project"   | sort: "date" | reverse %}
+
+{% if published.size > 0 %}
+<section class="band">
+  {% include section.html title="Publications" blurb="These are papers that have already been published." id="publications" %}
+  <div class="entries">
+    {% for p in published %}{% include publication.html p=p %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if accepted.size > 0 %}
+<section class="band">
+  {% include section.html title="Accepted Papers" blurb="These are papers that have been accepted for publication, but are not yet up." id="accepted" %}
+  <div class="entries">
+    {% for p in accepted %}{% include publication.html p=p %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if submitted.size > 0 %}
+<section class="band">
+  {% include section.html title="Submitted Papers" blurb="These are papers that have been submitted for publication, but have not yet been released." id="submitted" %}
+  <div class="entries">
+    {% for p in submitted %}{% include publication.html p=p %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if projects.size > 0 %}
+<section class="band">
+  {% include section.html title="Research Projects" blurb="These include coursework, side projects and unpublished research work." id="projects" %}
+  <div class="entries">
+    {% for p in projects %}{% include publication.html p=p %}{% endfor %}
+  </div>
+</section>
+{% endif %}

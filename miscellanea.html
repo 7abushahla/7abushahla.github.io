@@ -1,0 +1,68 @@
+---
+layout: page
+title: Miscellanea
+permalink: /miscellanea/
+---
+
+<section class="band">
+  {% include section.html title="Honors &amp; awards" id="awards" %}
+  <ul class="award-list">
+    {% for a in site.data.cv.awards %}
+      <li>
+        {% if a.url %}<a href="{{ a.url }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}
+        {% if a.note %}<span class="mono award-note">{{ a.note }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="band">
+  {% include section.html title="Skills" id="skills" %}
+  <dl class="kv">
+    {% for s in site.data.cv.skills %}
+      <dt class="mono">{{ s.label }}</dt>
+      <dd>{{ s.items | join: " · " }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section class="band">
+  {% include section.html title="Relevant coursework" id="coursework" %}
+  <dl class="kv">
+    {% for c in site.data.cv.coursework %}
+      <dt class="mono">{{ c.label }}</dt>
+      <dd>{{ c.items | join: " · " }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section class="band">
+  {% include section.html title="Certificates" id="certificates" %}
+  <ul class="cert-list">
+    {% for c in site.data.cv.certificates %}
+      <li>
+        <span class="cert-date mono">{{ c.date }}</span>
+        <span class="cert-title">{{ c.title }}</span>
+        <span class="cert-issuer">{{ c.issuer }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="band">
+  {% include section.html title="Visitor map" id="visitors" %}
+  {% comment %}
+    MapMyVisitors (formerly ClustrMaps — the old widget died with the rebrand).
+    Their docs require this in <body>, not <head>. The <noscript> falls back to
+    the static image build of the same map.
+  {% endcomment %}
+  <div class="visitor-map">
+    <script type="text/javascript" id="mapmyvisitors"
+            src="//mapmyvisitors.com/map.js?d=TbNY2SO43MJZ7cInLzlyoUjO4j9UooQb7i8GW3_fq48&cl=ffffff&w=340"></script>
+    <noscript>
+      <a href="https://mapmyvisitors.com/web/1c7k0" title="Visitor map">
+        <img src="https://mapmyvisitors.com/map.png?d=TbNY2SO43MJZ7cInLzlyoUjO4j9UooQb7i8GW3_fq48&cl=ffffff" alt="Map of visitors to this site">
+      </a>
+    </noscript>
+  </div>
+</section>

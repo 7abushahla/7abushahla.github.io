@@ -1,0 +1,46 @@
+# Degrees, newest first. `thesis` and `project` render as a highlighted block.
+- institution: American University of Sharjah
+  degree: MSc. in Machine Learning
+  from: Aug 2024
+  to: Dec 2026
+  active: true
+  expected: true
+  gpa: 3.75 / 4.0
+  location: Sharjah, UAE
+  logo: /images/logos/aus.png
+  monogram: AUS
+  thesis:
+    label: Thesis
+    title: >-
+      Distribution-Aware Quantization for Low-Latency ANN-to-SNN Conversion on
+      Neuromorphic Hardware
+    advisors: Dr. Mohamed AlHajri (AUS), Prof. Yahya Zweiri (Khalifa University)
+    # TODO(hamza): paste your own abstract here. Left empty deliberately —
+    # nothing should describe your thesis except you. The block below renders
+    # only when this field is non-empty.
+    abstract:
+
+- institution: American University of Sharjah
+  degree: BSc. in Computer Engineering
+  minor: Minor in Engineering Management
+  from: Sep 2020
+  to: Jul 2024
+  gpa: 3.41 / 4.0
+  location: Sharjah, UAE
+  logo: /images/logos/aus.png
+  monogram: AUS
+  thesis:
+    label: Senior Design Project
+    title: >-
+      Cognitive Radio Spectrum Sensing & Allocation: A Low-Complexity Deep
+      Learning Approach
+    note: 2nd place, AUS College of Engineering Senior Design Projects Competition
+
+- institution: Applied Technology High School
+  degree: High School Diploma, Computer Science
+  from: 2016
+  to: 2020
+  location: Abu Dhabi, UAE
+  logo: /images/logos/aths.png
+  logo_size: lg          # full lockup — needs more room than a bare mark
+  monogram: ATHS

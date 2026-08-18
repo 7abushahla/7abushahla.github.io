@@ -1,264 +1,44 @@
-<!DOCTYPE HTML>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-E00L9PT3V9');
-  </script>
-  <title>{{ site.name }}</title>
-
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
-  <meta name="author" content="{{ site.name }}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+  {% include head.html %}
 </head>
-
 <body>
-  <div class="container">
-    <!-- Profile Section -->
-    <section class="profile-section">
-      <div class="profile-content">
-        <div class="profile-text">
-          <h1>Hamza Ahmed Abushahla</h1>
-          <p>I'm a Master's student in Machine Learning at the <a href="https://www.aus.edu">American University of Sharjah</a>, where I also earned my B.Sc. in Computer Engineering and a minor in Engineering Management.</p>
-          <p>I currently work as a research and teaching assistant in the <a href="https://www.aus.edu/cen/department-of-computer-science-and-engineering">department of Computer Science and Engineering</a>. My research focuses mainly on model compression, optimization and quantization for deploying neural networks on resource-constrained edge devices. Additionally, I explore energy-efficient computing and intelligent autonomous robotics.</p>
-        </div>
-        <div class="profile-image">
-          <img src="images/profile_image_compressed.jpg" alt="Hamza Ahmed Abushahla">
-        </div>
-      </div>
-      <div class="social-links">
-        <a href="mailto:hamzaahmed.ha24@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-        <a href="pdfs/cv.pdf"><i class="fas fa-file-alt"></i> CV</a>
-        <a href="https://www.linkedin.com/in/hamza-abushahla/"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/7abushahla"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://scholar.google.com/citations?user=ivPsj5gAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Scholar</a>
-      </div>
-    </section>
+  {% include nav.html %}
 
-    <!-- Publications Section -->
-    <section class="publications-section">
-      <div class="section-header">
-        <h2>Publications</h2>
-        <p>These are papers that have already been published.</p>
-      </div>
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'published' %}
-      <div class="publication-card">
-        <div class="pub-content">
-          <img src="{{ post.image }}" alt="project image" class="pub-image">
-          <div class="pub-details">
-            <h3>{{post.title}}</h3>
-            <p class="authors">{{post.authors}}</p>
-            <p class="venue">
-              {% if post.venue %}
-                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
-              {% elsif post.course %}
-                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
-              {% else %}
-                {{ post.date | date: "%Y" }}
-              {% endif %}
-            </p>
-            <div class="paper-links">
-              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
-              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
-              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
-              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
-              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
-              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
-            </div>
-            <p class="abstract">{{ post.excerpt }}</p>
-          </div>
-        </div>
-      </div>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-    </section>
+  <main id="main">
+    {{ content }}
+  </main>
 
-    <!-- Accepted Papers Section -->
-    <section class="publications-section">
-      <div class="section-header">
-        <h2>Accepted Papers</h2>
-        <p>These are papers that have been accepted for publication, but are not yet up.</p>
-      </div>
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'accepted' %}
-      <div class="publication-card">
-        <div class="pub-content">
-          <img src="{{ post.image }}" alt="project image" class="pub-image">
-          <div class="pub-details">
-            <h3>{{post.title}}</h3>
-            <p class="authors">{{post.authors}}</p>
-            <p class="venue">
-              {% if post.venue %}
-                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
-              {% elsif post.course %}
-                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
-              {% else %}
-                {{ post.date | date: "%Y" }}
-              {% endif %}
-            </p>
-            <div class="paper-links">
-              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
-              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
-              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
-              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
-              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
-              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
-            </div>
-            <p class="abstract">{{ post.excerpt }}</p>
-          </div>
-        </div>
-      </div>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-    </section>
+  {% include footer.html %}
 
-    <!-- Submitted Papers Section -->
-    <section class="publications-section">
-      <div class="section-header">
-        <h2>Submitted Papers</h2>
-        <p>These are papers that have been submitted for publication, but have not yet been released.</p>
-      </div>
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'submitted' %}
-      <div class="publication-card">
-        <div class="pub-content">
-          <img src="{{ post.image }}" alt="project image" class="pub-image">
-          <div class="pub-details">
-            <h3>{{post.title}}</h3>
-            <p class="authors">{{post.authors}}</p>
-            <p class="venue">
-              {% if post.venue %}
-                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
-              {% elsif post.course %}
-                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
-              {% else %}
-                {{ post.date | date: "%Y" }}
-              {% endif %}
-            </p>
-            <div class="paper-links">
-              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
-              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
-              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
-              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
-              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
-              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
-            </div>
-            <p class="abstract">{{ post.excerpt }}</p>
-          </div>
-        </div>
-      </div>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-    </section>
-        
-        <!-- Research Projects Section -->
-    <section class="publications-section">
-      <div class="section-header">
-        <h2>Research Projects</h2>
-        <p>These include coursework, side projects and unpublished research work.</p>
-      </div>
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat != 'published' and cat != 'accepted' and cat != 'submitted' %}
-      <div class="publication-card">
-        <div class="pub-content">
-          <img src="{{ post.image }}" alt="project image" class="pub-image">
-          <div class="pub-details">
-            <h3>{{post.title}}</h3>
-            <p class="authors">{{post.authors}}</p>
-            <p class="venue">
-              {% if post.venue %}
-                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
-              {% elsif post.course %}
-                <em>{{post.course}}</em>, {{ post.date | date: "%Y" }}
-              {% else %}
-                {{ post.date | date: "%Y" }}
-              {% endif %}
-            </p>
-            <div class="paper-links">
-              {% if post.paper %}<a href="{{ post.paper }}"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
-              {% if post.code %}<a href="{{ post.code }}"><i class="fas fa-code"></i> Code</a>{% endif %}
-              {% if post.poster %}<a href="{{ post.poster }}"><i class="fas fa-image"></i> Poster</a>{% endif %}
-              {% if post.slides %}<a href="{{ post.slides }}"><i class="fas fa-desktop"></i> Slides</a>{% endif %}
-              {% if post.arxiv %}<a href="{{ post.arxiv }}"><i class="fas fa-archive"></i> arXiv</a>{% endif %}
-              {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-globe"></i> Webpage</a>{% endif %}
-            </div>
-            <p class="abstract">{{ post.excerpt }}</p>
-          </div>
-        </div>
-      </div>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-    </section>
+  <script>
+    (function () {
+      var root = document.documentElement;
 
-<!-- Miscellanea Section -->
-    <section class="misc-section">
-      <div class="section-header">
-        <h2>Miscellanea</h2>
-      </div>
-      
-      <div class="misc-card">
-        <h3>Peer Reviewed Articles</h3>
-        <ul>
-          <li><strong>IEEE Internet of Things Journal</strong> – 1 paper</li>
-          <li><strong>IEEE Access</strong> – 1 paper</li>
-        </ul>
-      </div>
+      // Theme toggle — persists, and the icon reflects current state.
+      var icon = document.querySelector('[data-theme-icon]');
+      function paintIcon() {
+        if (icon) icon.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '☾';
+      }
+      paintIcon();
+      var tt = document.querySelector('.theme-toggle');
+      if (tt) tt.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        paintIcon();
+      });
 
-      <div class="misc-card">
-        <h3>Teaching Assistantships</h3>
-        <ul>
-          <li><strong>Software:</strong> CMP120 – Programming I, CMP220 – Programming II, CMP305 – Data Structures & Algorithms, CMP321 – Programming Languages, CMP320 - Database Systems</li>
-          <li><strong>Hardware:</strong> COE425 – Modern Computer Organization, COE221 – Digital Systems</li>
-          <li><strong>Networks:</strong> COE371 - Computer Networks</li>
-        </ul>
-      </div>
-      <div class="misc-card">
-        <h3>Awards & Honors</h3>
-        <ul>
-          <li>2nd place at the AUS College of Engineering senior design projects competition</li>
-          <li>Full scholarship for undergraduate studies awarded by Ministry of Presidential Affairs, UAE</li>
-          <li>Member of the <a href="https://hkn.ieee.org/">IEEE-Eta Kappu Nu</a> Honors Society</li>
-        </ul>
-      </div>
-      <div class="misc-card">
-        <h3>Visitor Map</h3>
-        <div style="text-align: center; margin-top: 1rem;">
-          <script
-            type="text/javascript"
-            id="clustrmaps"
-            src="//cdn.clustrmaps.com/map_v2.js?cl=2d5af6&w=239&t=m&d=CcXQeqHGH9jGo48ftlqoMb2ydI_nu0Y3C2PSJMv8JsA&co=f8f9fa&cmo=3acc3a&cmn=ff5353&ct=2d5af6">
-          </script>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of <a href="https://jonbarron.info">Jon Barron's website</a></p>
-    </footer>
-  </div>
+      // Mobile nav disclosure.
+      var toggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('sitenav');
+      if (toggle && nav) toggle.addEventListener('click', function () {
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        nav.classList.toggle('is-open', !open);
+      });
+    })();
+  </script>
 </body>
-
 </html>
-

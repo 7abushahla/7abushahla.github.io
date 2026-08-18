@@ -1,0 +1,153 @@
+# Experience, grouped into tracks. Newest first within each track.
+#
+# Per entry:
+#   org       required. Organization name.
+#   unit      optional. Center / lab / department within the org.
+#   client    optional. Shown as "› Client" — for agency-style engagements.
+#   role      required. Your title.
+#   from / to required. Display strings. Leave `to` as "present" for ongoing.
+#   active    optional. true renders the teal ACTIVE marker.
+#   advisors  optional. Free text.
+#   location  optional.
+#   logo      optional. Path to an image, e.g. /images/logos/aus.svg
+#   monogram  fallback shown when no logo file exists yet.
+#   body      optional. One short paragraph.
+
+- track: Industry, Research & Development
+  id: rnd
+  entries:
+    - org: Kumrah AI
+      client: Drone Leaf
+      role: Embedded Machine Learning Engineer
+      from: Jun 2026
+      to: present
+      active: true
+      location: Abu Dhabi, UAE
+      logo_layout: wide
+      logos:
+        - src: /images/logos/kumrah-wordmark.svg
+          src_dark: /images/logos/kumrah-wordmark-ondark.svg
+          alt: Kumrah AI
+        - src: /images/logos/droneleaf-wordmark.svg
+          alt: Drone Leaf
+      monogram: KA
+      body: >-
+        Computer-vision detection and tracking for UAV autonomy. Working as a
+        Kumrah engineer embedded with the Drone Leaf team, applying quantization
+        and hardware-aware optimization so perception runs onboard within the
+        airframe's latency, memory and power budget.
+
+    # ── ON HOLD ────────────────────────────────────────────────
+    # Engagement started but no work carried out yet. Uncomment the
+    # block below to bring it back.
+    # - org: Dubai Police H.Q.
+    #   unit: Unmanned Aerial Systems Center (UASC)
+    #   role: Research & Development Collaborator
+    #   from: Feb 2026
+    #   to: present
+    #   active: true
+    #   advisors: Lt. Saif Al Falasi, Dr. Mohamed AlHajri
+    #   location: Dubai, UAE — hybrid
+    #   logo: /images/logos/dubai-police.png
+    #   monogram: DP
+    #   body: >-
+    #     Designing and evaluating edge AI systems for real-time UAV-based
+    #     security and surveillance of critical infrastructure.
+
+- track: Academia
+  id: academic
+  entries:
+    - org: Khalifa University
+      unit: Advanced Research and Innovation Center (ARIC)
+      role: Visiting Researcher
+      from: Sep 2025
+      to: present
+      active: true
+      advisors: Prof. Yahya Zweiri, Dr. Mohamed AlHajri
+      location: Abu Dhabi, UAE — hybrid
+      logo: /images/logos/ku.png
+      monogram: KU
+      body: >-
+        Quantization-centric ANN-to-SNN conversion — studying distribution-aware
+        and hardware-aware optimization to enable efficient, low-latency
+        inference on neuromorphic hardware. This is the basis of the MSc thesis.
+
+    - org: American University of Sharjah
+      unit: Department of Computer Science & Engineering
+      role: Graduate Research Assistant
+      from: Aug 2024
+      to: present
+      active: true
+      advisors: Dr. Mohamed AlHajri
+      location: Sharjah, UAE
+      logo: /images/logos/aus.png
+      monogram: AUS
+      body: >-
+        Research on distribution-aware and hardware-aware neural network
+        quantization for low-latency, energy-efficient inference on
+        microcontroller-class devices.
+
+    - org: American University of Sharjah
+      unit: Department of Computer Science & Engineering
+      role: Graduate Teaching Assistant
+      from: Aug 2024
+      to: May 2026
+      location: Sharjah, UAE
+      logo: /images/logos/aus.png
+      monogram: AUS
+      body: >-
+        Supported eight undergraduate CSE courses across software, hardware and
+        networks — leading lab sessions, guiding students through programming
+        and debugging, grading with detailed feedback, and proctoring exams.
+
+    - org: American University of Sharjah
+      unit: Department of Computer Science & Engineering
+      role: Undergraduate Research Assistant
+      from: Jun 2024
+      to: Aug 2024
+      advisors: Dr. Imran Zualkernan, Mr. Ali Reza Sajun
+      location: Sharjah, UAE
+      logo: /images/logos/aus.png
+      monogram: AUS
+      body: >-
+        Developed and deployed TinyML models on microcontroller platforms
+        including the Sony Spresense for low-latency, resource-efficient edge
+        inference, contributing to published machine learning research.
+
+    - org: New York University Abu Dhabi
+      unit: eBrain Lab
+      role: Visiting Researcher
+      from: May 2024
+      to: Aug 2024
+      advisors: Prof. Muhammad Shafique, Dr. Alberto Marchisio
+      location: Abu Dhabi, UAE
+      logo: /images/logos/nyuad.png
+      monogram: NY
+      body: >-
+        Developed and validated optimizations for the TinyCL continual-learning
+        hardware accelerator, including approximate multipliers and performance
+        benchmarking, focused on embedded vision for autonomous mobile robots.
+
+- track: Internships & programs
+  id: internships
+  entries:
+    - org: Dolphin Energy Limited
+      role: Automation and Industrial IT Intern
+      from: May 2023
+      to: Aug 2023
+      location: Al Taweelah, Abu Dhabi, UAE
+      logo: /images/logos/dolphin.png
+      monogram: DE
+      body: >-
+        SCADA and industrial control systems across upstream and downstream
+        operations. Preventive maintenance on SCADA cabinets, remote Cisco
+        switches and ICS laptops, supporting network device integration,
+        reliability and OT security.
+
+    - org: Emirates Nuclear Energy Corporation
+      role: Participant — Nuclear Innovation & Technology Summer School
+      from: Aug 2024
+      to: Aug 2024
+      location: Abu Dhabi, UAE
+      logo: /images/logos/enec.svg
+      monogram: EN

@@ -1,0 +1,66 @@
+{% comment %}
+  A single logo-led entry with the mono date column.
+  Params: e (the entry hash). Optional: e.logo | e.monogram | e.active
+
+  Read the param off `include.` — relying on a bare `e` silently picks up the
+  caller's loop variable instead, and renders blank when it is named anything else.
+{% endcomment %}
+{% assign e = include.e %}
+<article class="entry{% if e.active %} is-active{% endif %}{% if e.logo_layout %} entry-{{ e.logo_layout }}{% endif %}">
+
+  <div class="entry-date mono">
+    <b>{{ e.to | default: "present" }}</b>
+    <span>{{ e.from }}</span>
+  </div>
+
+  {% comment %} `logos` (a list) wins over `logo`; used where two organizations
+     share one engagement, e.g. an employer and the client worked for. {% endcomment %}
+  <div class="entry-mark{% if e.logos %} entry-mark-pair{% endif %}{% if e.logo_size %} entry-mark-{{ e.logo_size }}{% endif %}">
+    {% if e.logos %}
+      {% for l in e.logos %}
+        <img class="logo-light" src="{{ l.src | relative_url }}" alt="{{ l.alt }} logo" title="{{ l.alt }}" loading="lazy">
+        {% if l.src_dark %}<img class="logo-dark" src="{{ l.src_dark | relative_url }}" alt="{{ l.alt }} logo" title="{{ l.alt }}" loading="lazy">{% endif %}
+      {% endfor %}
+    {% elsif e.logo %}
+      <img src="{{ e.logo | relative_url }}" alt="{{ e.org | default: e.institution }} logo" loading="lazy">
+    {% else %}
+      <span class="monogram">{{ e.monogram | default: "·" }}</span>
+    {% endif %}
+  </div>
+
+  <div class="entry-body">
+    <h3 class="entry-title">
+      {{ e.org | default: e.institution }}
+      {%- if e.client %} <span class="entry-client">› {{ e.client }}</span>{% endif %}
+      {%- if e.active %} <span class="pill">Active</span>{% endif %}
+    </h3>
+
+    {% if e.unit %}<p class="entry-unit">{{ e.unit }}</p>{% endif %}
+
+    <p class="entry-role">
+      {{ e.role | default: e.degree }}
+      {%- if e.minor %} <span class="entry-sep">·</span> {{ e.minor }}{% endif %}
+    </p>
+
+    {% if e.advisors or e.location or e.gpa %}
+      <p class="entry-meta mono">
+        {%- if e.advisors %}Advised by {{ e.advisors }}{% endif -%}
+        {%- if e.advisors and e.location %} <span class="entry-sep">·</span> {% endif -%}
+        {%- if e.location %}{{ e.location }}{% endif -%}
+        {%- if e.gpa %}{% if e.advisors or e.location %} <span class="entry-sep">·</span> {% endif %}GPA {{ e.gpa }}{% endif -%}
+      </p>
+    {% endif %}
+
+    {% if e.body %}<p class="entry-desc">{{ e.body }}</p>{% endif %}
+
+    {% if e.thesis %}
+      <div class="thesis">
+        <span class="mono thesis-label">{{ e.thesis.label }}</span>
+        <p class="thesis-title">{{ e.thesis.title }}</p>
+        {% if e.thesis.advisors %}<p class="entry-meta mono">Advised by {{ e.thesis.advisors }}</p>{% endif %}
+        {% if e.thesis.abstract %}<p class="entry-desc">{{ e.thesis.abstract }}</p>{% endif %}
+        {% if e.thesis.note %}<p class="entry-meta mono">{{ e.thesis.note }}</p>{% endif %}
+      </div>
+    {% endif %}
+  </div>
+</article>

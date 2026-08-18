@@ -1,0 +1,71 @@
+# Academic service: peer review, teaching, mentorship, student leadership.
+
+review:
+  - venue: IEEE Internet of Things Journal
+    logo: /images/logos/ieee.svg
+    metrics: [Q1, IF 8.9, 97th percentile]
+    papers: 1
+  - venue: IEEE Access
+    logo: /images/logos/ieee.svg
+    metrics: [Q1, IF 3.6, 90th percentile]
+    papers: 1
+
+teaching:
+  org: American University of Sharjah
+  unit: Department of Computer Science & Engineering
+  role: Teaching Assistant
+  from: Aug 2024
+  to: May 2026
+  logo: /images/logos/aus.png
+  monogram: AUS
+  body: >-
+    Supported undergraduate CSE courses — guiding students through programming
+    and debugging in lab sessions, grading assignments with detailed feedback,
+    and proctoring exams.
+  groups:
+    - label: Software
+      courses:
+        - { code: CMP120, name: Programming I }
+        - { code: CMP220, name: Programming II }
+        - { code: CMP305, name: Data Structures & Algorithms }
+        - { code: CMP320, name: Database Systems }
+        - { code: CMP321, name: Programming Languages }
+    - label: Hardware
+      courses:
+        - { code: COE221, name: Digital Systems }
+        - { code: COE425, name: Modern Computer Organization }
+    - label: Networks
+      courses:
+        - { code: COE371, name: Computer Networks }
+
+mentorship:
+  - student: Mohamad Dabbagh
+    level: Undergraduate
+    org: American University of Sharjah
+    logo: /images/logos/aus.png
+    from: Apr 2026
+    to: present
+    active: true
+    body: >-
+      An end-to-end, hardware-aware pipeline for GNSS spoofing detection on
+      microcontroller-class devices — quantization-aware neural networks under
+      strict compute and memory constraints, spanning model design, training and
+      simulation, embedded deployment, and on-device evaluation of latency,
+      energy and power.
+
+leadership:
+  - org: IEEE Robotics & Automation Society — AUS Student Chapter
+    role: Computer Engineering Representative
+    logo: /images/logos/aus.png
+    from: Oct 2023
+    to: May 2024
+  - org: Computer Engineering Club — AUS
+    role: Media Officer
+    logo: /images/logos/aus.png
+    from: Jan 2023
+    to: Apr 2023
+  - org: American University of Sharjah
+    role: Peer Leader, Student Leadership Program
+    logo: /images/logos/aus.png
+    from: Aug 2022
+    to: Feb 2023

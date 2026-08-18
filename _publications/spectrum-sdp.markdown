@@ -1,9 +1,7 @@
 ---
-layout: post
 title:  "Cognitive Radio Spectrum Sensing and Allocation: A Low-Complexity Deep Learning Approach"
 date:   2024-05-04 09:00:00 +00:00
 image: /images/SDP.png
-categories: AUS
 course: Senior Design Project
 author: "Hamza Ahmed Abushahla"
 authors: "<strong>Hamza Abushahla</strong>, Ghanim Al-Ali, Sultan Abdalla, Muhammad Ismail Sadaqat, Mohamed AlHajri, Taha Landolsi"
@@ -11,5 +9,7 @@ code: https://github.com/7abushahla/Spectrum-Sensing-SDP/
 paper: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Final_Report.pdf
 poster: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Poster.pdf
 slides: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Slides.pptx
+status: project
+domain: Radio
 ---
 This was my B.Sc. in Computer Engineering Senior Design Project, focused on spectrum sensing and allocation using a low-complexity deep learning-based (CNN) spectrum sensing algorithm. The project involved developing and quantizing the CNN model, which was deployed on hardware for real-time operation. The solution was demonstrated both in simulation and on hardware, utilizing a Raspberry Pi as the central node, RTL-SDR for signal sensing, and LoRa transceivers for communication. This dual demonstration validated the practicality and efficiency of the approach in addressing dynamic spectrum management challenges.

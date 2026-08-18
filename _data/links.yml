@@ -1,0 +1,26 @@
+# Contact + profile links. Used on the About rail, the CV page and the footer.
+email: hamzaahmed.ha24@gmail.com
+cv_pdf: /pdfs/cv.pdf
+location: Abu Dhabi, UAE
+
+profiles:
+  - name: Google Scholar
+    short: Scholar
+    icon: fa-brands fa-google-scholar
+    url: https://scholar.google.com/citations?user=ivPsj5gAAAAJ&hl=en
+  - name: ORCID
+    short: ORCID
+    icon: fa-brands fa-orcid
+    url: https://orcid.org/0009-0003-6247-6776
+  - name: ResearchGate
+    short: ResearchGate
+    icon: fa-brands fa-researchgate
+    url: https://www.researchgate.net/profile/Hamza-Abushahla
+  - name: LinkedIn
+    short: LinkedIn
+    icon: fa-brands fa-linkedin
+    url: https://www.linkedin.com/in/hamza-abushahla/
+  - name: GitHub
+    short: GitHub
+    icon: fa-brands fa-github
+    url: https://github.com/7abushahla

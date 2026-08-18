@@ -1,0 +1,87 @@
+---
+layout: page
+title: Service
+permalink: /service/
+---
+
+<section class="band">
+  {% include section.html title="Peer review" blurb="Journals I have reviewed for." id="review" %}
+  <ul class="review-list">
+    {% for r in site.data.service.review %}
+      <li>
+        {% if r.logo %}<img class="review-logo" src="{{ r.logo | relative_url }}" alt="" loading="lazy">{% endif %}
+        <span class="review-venue">{{ r.venue }}</span>
+        {% if r.metrics %}<span class="review-metrics">({{ r.metrics | join: ", " }})</span>{% endif %}
+        {% if r.papers %}<span class="review-count mono">{{ r.papers }} paper{% if r.papers != 1 %}s{% endif %}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% assign t = site.data.service.teaching %}
+<section class="band">
+  {% include section.html title="Teaching assistantships" id="teaching" %}
+  <div class="entries">
+    {% include entry.html e=t %}
+  </div>
+  <div class="course-groups">
+    {% for g in t.groups %}
+      <div class="course-group">
+        <h4 class="mono course-label">{{ g.label }}</h4>
+        <ul class="course-list">
+          {% for c in g.courses %}
+            <li><span class="mono course-code">{{ c.code }}</span> {{ c.name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="band">
+  {% include section.html title="Research mentorship" blurb="Undergraduates I supervise on research projects." id="mentorship" %}
+  <div class="entries">
+    {% for m in site.data.service.mentorship %}
+      <article class="entry{% if m.active %} is-active{% endif %}">
+        <div class="entry-date mono"><b>{{ m.to }}</b><span>{{ m.from }}</span></div>
+        <div class="entry-mark">
+          {% if m.logo %}
+            <img src="{{ m.logo | relative_url }}" alt="{{ m.org }} logo" title="{{ m.org }}" loading="lazy">
+          {% else %}
+            <span class="monogram">{{ m.student | slice: 0 }}</span>
+          {% endif %}
+        </div>
+        <div class="entry-body">
+          <h3 class="entry-title">
+            {{ m.student }}
+            {%- if m.active %} <span class="pill">Active</span>{% endif %}
+          </h3>
+          <p class="entry-role">{{ m.level }} researcher <span class="entry-sep">·</span> {{ m.org }}</p>
+          <p class="entry-desc">{{ m.body }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="band">
+  {% include section.html title="Student leadership" id="leadership" %}
+  <div class="entries">
+    {% for l in site.data.service.leadership %}
+      <article class="entry entry-slim">
+        <div class="entry-date mono"><b>{{ l.to }}</b><span>{{ l.from }}</span></div>
+        <div class="entry-mark">
+          {% if l.logo %}
+            <img src="{{ l.logo | relative_url }}" alt="{{ l.org }} logo" title="{{ l.org }}" loading="lazy">
+          {% else %}
+            <span class="monogram">·</span>
+          {% endif %}
+        </div>
+        <div class="entry-body">
+          <h3 class="entry-title">{{ l.org }}</h3>
+          <p class="entry-role">{{ l.role }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

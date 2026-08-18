@@ -1,0 +1,23 @@
+---
+layout: page
+title: CV
+permalink: /cv/
+hide_title: true
+---
+
+<div class="cv-actions">
+  <a class="btn" href="{{ site.data.links.cv_pdf | relative_url }}" download>Download PDF</a>
+  <a class="btn btn-quiet" href="{{ site.data.links.cv_pdf | relative_url }}" target="_blank" rel="noopener">Open in new tab</a>
+</div>
+
+{% comment %}
+  <object> is the reliable embed: browsers without a built-in PDF viewer — and
+  most mobile browsers, which refuse to render PDFs inline — fall through to the
+  markup inside it rather than showing an empty grey box.
+{% endcomment %}
+<object class="cv-viewer" data="{{ site.data.links.cv_pdf | relative_url }}#view=FitH" type="application/pdf">
+  <div class="cv-fallback">
+    <p>Your browser can&rsquo;t display the PDF inline.</p>
+    <p><a class="btn" href="{{ site.data.links.cv_pdf | relative_url }}">Download the CV instead</a></p>
+  </div>
+</object>

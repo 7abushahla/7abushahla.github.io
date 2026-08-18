@@ -1,0 +1,5 @@
+{% comment %} Params: title, blurb (optional), id (optional) {% endcomment %}
+<div class="section-head"{% if include.id %} id="{{ include.id }}"{% endif %}>
+  <h2 class="section-title">{{ include.title }}</h2>
+  {% if include.blurb %}<p class="section-blurb">{{ include.blurb }}</p>{% endif %}
+</div>

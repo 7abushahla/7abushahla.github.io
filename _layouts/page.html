@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="shell">
+  {% comment %} `hide_title` keeps the <title> tag and nav highlighting while
+     suppressing the on-page heading — for pages that are their own headline. {% endcomment %}
+  {% unless page.hide_title %}
+  <header class="page-head">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.lede %}<p class="page-lede">{{ page.lede }}</p>{% endif %}
+  </header>
+  {% endunless %}
+
+  {{ content }}
+</div>

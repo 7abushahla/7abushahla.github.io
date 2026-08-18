@@ -1,0 +1,54 @@
+{% comment %} Params: p (a document from the publications collection) {% endcomment %}
+{% assign p = include.p %}
+<article class="pub">
+
+  <div class="entry-date mono">
+    <b>{{ p.date | date: "%Y" }}</b>
+    <span>
+      {%- case p.status -%}
+        {%- when 'published' -%}published
+        {%- when 'accepted' -%}accepted
+        {%- when 'submitted' -%}submitted
+        {%- else -%}{{ p.course | default: "project" }}
+      {%- endcase -%}
+    </span>
+  </div>
+
+  {% if p.image %}
+    <img class="pub-thumb" src="{{ p.image | relative_url }}" alt="" loading="lazy">
+  {% else %}
+    <span class="pub-thumb pub-thumb-empty" aria-hidden="true"></span>
+  {% endif %}
+
+  <div class="entry-body">
+    <h3 class="pub-title">{{ p.title }}</h3>
+    <p class="pub-authors">{{ p.authors }}</p>
+    {% if p.note %}<p class="pub-note">{{ p.note }}</p>{% endif %}
+
+    <p class="pub-venue">
+      {%- if p.venue -%}
+        <em>{{ p.venue }}</em>, {{ p.date | date: "%Y" }}
+      {%- elsif p.course -%}
+        <em>{{ p.course }}</em>, {{ p.date | date: "%Y" }}
+      {%- endif -%}
+      {%- if p.impact and p.impact.size > 0 %} <span class="pub-metrics">({{ p.impact | join: ", " }})</span>{% endif -%}
+    </p>
+
+    {% assign has_links = false %}
+    {% if p.paper or p.code or p.arxiv or p.poster or p.slides or p.website %}{% assign has_links = true %}{% endif %}
+    {% if has_links %}
+      <div class="links">
+        {% if p.paper %}<a href="{{ p.paper }}"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>Paper</a>{% endif %}
+        {% if p.arxiv %}<a href="{{ p.arxiv }}"><i class="ai ai-arxiv" aria-hidden="true"></i>arXiv</a>{% endif %}
+        {% if p.code %}<a href="{{ p.code }}"><i class="fa-solid fa-code" aria-hidden="true"></i>Code</a>{% endif %}
+        {% if p.poster %}<a href="{{ p.poster }}"><i class="fa-solid fa-image" aria-hidden="true"></i>Poster</a>{% endif %}
+        {% if p.slides %}<a href="{{ p.slides }}"><i class="fa-solid fa-display" aria-hidden="true"></i>Slides</a>{% endif %}
+        {% if p.website %}<a href="{{ p.website }}"><i class="fa-solid fa-globe" aria-hidden="true"></i>Webpage</a>{% endif %}
+      </div>
+    {% endif %}
+
+    {% if p.content and p.content != '' %}
+      <div class="pub-summary">{{ p.content | strip_html | strip_newlines | strip }}</div>
+    {% endif %}
+  </div>
+</article>

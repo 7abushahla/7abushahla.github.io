@@ -1,14 +1,15 @@
 ---
-layout: post
 title:  "From Sensor to Server: Deployable Lightweight ML for IoT Intrusion Detection Across Network Layers"
 date:   2026-04-03 09:00:00 +00:00
 image: /images/IDS.jpg
-categories: published
 author: "Hamza A. Abushahla"
 authors: "Ariel Justine N. Panopio, <strong>Hamza A. Abushahla</strong>, Ali Reza Sajun, Sameer Alawnah, Fadi Aloul, and Imran Zualkernan"
 venue: "IEEE Internet of Things Journal"
 paper: https://ieeexplore.ieee.org/document/11474516
 code: https://github.com/7abushahla/lightweight-IoT-IDS
+status: published
+domain: Network
+impact: ["Q1", "IF 8.9", "97th percentile"]
 ---
 
 This work presents a deployable, lightweight machine learning (ML) framework for Intrusion Detection Systems (IDS) designed to operate across edge, fog, and cloud layers of the IoT stack

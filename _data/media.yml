@@ -1,0 +1,78 @@
+# Radio, TV, podcast and press. Add a press clipping by appending to `press`.
+#
+# Per entry:
+#   title_en / title_ar  — Arabic renders in IBM Plex Sans Arabic, RTL-isolated.
+#   outlet, from, to, role, episodes, url, body
+
+radio:
+  - title_ar: ومضات تقنية
+    title_en: Wamadat Tiqniya — “Tech Flashes”
+    outlet: Sharjah Broadcasting Authority
+    logo: /images/logos/sba.png
+    role: Writer & host
+    episodes: 30
+    from: Oct 2025
+    to: Nov 2025
+    body: >-
+      Wrote and hosted an original Arabic technology series of 30 short
+      episodes, covering edge AI, cloud computing, quantum computing and
+      related areas — emerging trends, digital awareness and practical advice,
+      pitched at a general audience rather than a technical one.
+
+  - title_ar: حياتنا الرقمية
+    title_en: Hayatuna al-Raqmiya — “Our Digital Life”
+    outlet: Sharjah Radio
+    logo: /images/logos/sba.png
+    role: Guest & co-host
+    from: Oct 2024
+    to: Feb 2025
+    hosts: Eng. Khalfan AlShamsi, Eng. Mohammad Bushlaibi
+    body: >-
+      Invited across multiple episodes to discuss how listeners can guard
+      against deepfakes, digital fraud and social engineering, with a focus on
+      raising public awareness.
+
+  - title_ar: نهار جديد
+    title_en: Nahar Jdid — “New Morning”
+    outlet: Sky News Arabia Radio
+    logo: /images/logos/skynewsarabia.png
+    role: Invited guest
+    from: Jun 2025
+    hosts: Rami Hasan, Lobna Abdelhady
+    body: >-
+      On the skills needed to succeed in an AI-driven workplace, and on
+      research at the American University of Sharjah.
+
+tv:
+  - title_ar: أماسي
+    title_en: Amasi
+    outlet: Sharjah TV
+    logo: /images/logos/sba.png
+    role: Invited guest
+    from: May 2024
+    body: >-
+      Featured after our senior design project won the College of Engineering
+      competition — explaining the cognitive-radio spectrum sensing work and
+      what the system does in practice.
+
+podcast:
+  - title_ar: قصتي
+    title_en: Qissati — “My Story”
+    outlet: Sky News Arabia
+    logo: /images/logos/skynewsarabia.png
+    role: Invited guest
+    from: Jul 2024
+    hosts: Rami Hasan
+    body: >-
+      On the links between AI and climate change, energy-efficient computing
+      and sustainability.
+
+# Newspaper and magazine coverage. Append entries here as:
+#   - title_en: ...
+#     title_ar: ...
+#     outlet: ...
+#     from: Mon YYYY
+#     url: https://...
+#     body: >-
+#       ...
+press: []
