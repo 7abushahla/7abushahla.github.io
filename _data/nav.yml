@@ -1,12 +1,12 @@
 # Top navigation. Order here is the order on the page.
 - title: About
   url: /
-- title: Education
-  url: /education/
 - title: Research
   url: /research/
 - title: Experience
   url: /experience/
+- title: Education
+  url: /education/
 - title: Service
   url: /service/
 - title: Media
