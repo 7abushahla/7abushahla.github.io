@@ -518,7 +518,7 @@ a {
 }
 
 .pub {
-  grid-template-columns: var(--date-col) 168px 1fr;
+  grid-template-columns: 84px 292px 1fr;   /* narrower date col, wider figure; text column unchanged */
 }
 
 .pub-thumb-empty { background: var(--surface); display: block; aspect-ratio: 16 / 10; }
@@ -894,7 +894,7 @@ a {
   .hero-grid { grid-template-columns: 1fr 200px; gap: 36px; }
   .kv { grid-template-columns: 1fr; gap: 0; }
   .kv dd { border-top: 0; padding-top: 0; }
-  .pub { grid-template-columns: var(--date-col) 140px 1fr; }
+  .pub { grid-template-columns: 76px 244px 1fr; }
 }
 
 @media (max-width: 760px) {
