@@ -105,15 +105,23 @@ test('phone width: filter wraps, no horizontal scroll', async () => {
   });
 });
 
-test('indoor paper shows its rebuilt 16:10 figure', async () => {
-  await withPage({}, async page => {
-    const img = await page.evaluate(`(async () => {
-      const a = [...document.querySelectorAll('article.pub')].find(a => a.textContent.includes('Sub-Millisecond'));
-      const im = a.querySelector('img.pub-thumb');
-      if (!im.complete) await new Promise(r => im.onload = r);
-      return { src: im.getAttribute('src'), w: im.naturalWidth, h: im.naturalHeight };
-    })()`);
-    assert.equal(img.src, '/images/fig-indoor-rf.png');
-    assert.deepEqual([img.w, img.h], [1200, 750]);
+// Papers whose screenshot thumbnails have been replaced by rebuilt 16:10 figures.
+const REBUILT = [
+  ['Sub-Millisecond', '/images/fig-indoor-rf.png'],
+  ['Different Strokes', '/images/fig-writer-id.png'],
+];
+
+for (const [titleWord, src] of REBUILT) {
+  test(`${titleWord} paper shows its rebuilt 16:10 figure`, async () => {
+    await withPage({}, async page => {
+      const img = await page.evaluate(`(async () => {
+        const a = [...document.querySelectorAll('article.pub')].find(a => a.textContent.includes(${JSON.stringify(titleWord)}));
+        const im = a.querySelector('img.pub-thumb');
+        if (!im.complete) await new Promise(r => im.onload = r);
+        return { src: im.getAttribute('src'), w: im.naturalWidth, h: im.naturalHeight };
+      })()`);
+      assert.equal(img.src, src);
+      assert.deepEqual([img.w, img.h], [1200, 750]);
+    });
   });
-});
+}

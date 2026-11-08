@@ -1,7 +1,7 @@
 ---
 title:  "Different Strokes for Different Folks: Writer Identification for Historical Arabic Manuscripts"
 date:   2026-07-02 09:00:00 +00:00
-image: /images/Writer-ID.png
+image: /images/fig-writer-id.png
 author: "Hamza A. Abushahla"
 authors: "<strong>Hamza A. Abushahla*</strong>, Ariel Justine Navarro Panopio*, Layth Al-Khairulla*, Mohamed I. AlHajri"
 venue: "International Journal on Document Analysis and Recognition (IJDAR)"
