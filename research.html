@@ -10,7 +10,7 @@ permalink: /research/
 {% assign projects  = site.publications | where: "status", "project"   | sort: "date" | reverse %}
 
 {% comment %} Area filter: hidden until research-filter.js runs, so no-JS visitors just see every paper. {% endcomment %}
-<nav class="area-filter" aria-label="Filter by area" hidden>
+<nav class="area-filter" role="group" aria-label="Filter by area" hidden>
   <span class="mono area-filter-label">Filter by area</span>
   <div class="area-pills">
     <button type="button" class="area-pill" data-area="">All<span class="n"></span></button>
@@ -18,6 +18,7 @@ permalink: /research/
     <button type="button" class="area-pill" data-area="{{ a | slugify }}">{{ a }}<span class="n"></span></button>
     {%- endfor %}
   </div>
+  <span class="sr-only" aria-live="polite" data-filter-status></span>
 </nav>
 
 {% if published.size > 0 %}

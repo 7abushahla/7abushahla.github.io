@@ -18,10 +18,12 @@
     var slug = pill.getAttribute('data-area');
     var n = slug ? pubs.filter(function (p) { return areasOf(p).indexOf(slug) !== -1; }).length : pubs.length;
     var out = pill.querySelector('.n');
-    if (out) out.textContent = String(n);
+    if (out) { out.textContent = String(n); out.setAttribute('aria-label', ' (' + n + (n === 1 ? ' paper)' : ' papers)')); }
     // An area with no visible paper (e.g. while some entries are unpublished) is not offered.
     if (n === 0) pill.hidden = true;
   });
+
+  var status = nav.querySelector('[data-filter-status]');
 
   function apply(slug) {
     current = slug;
@@ -39,6 +41,13 @@
         chip.classList.toggle('is-on', slug !== null && chip.getAttribute('data-area') === slug);
       });
     });
+
+    if (status) {
+      var shownCount = pubs.filter(function (p) { return !p.hidden; }).length;
+      var pill = slug ? nav.querySelector('.area-pill[data-area="' + slug + '"]') : null;
+      var name = pill ? pill.firstChild.textContent : 'all areas';
+      status.textContent = 'Showing ' + shownCount + ' of ' + pubs.length + ' papers: ' + name;
+    }
 
     var firstShown = true;
     sections.forEach(function (section) {

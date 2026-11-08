@@ -37,15 +37,25 @@ test('existing entry parts are unchanged', async () => {
   });
 });
 
-const visible = `[...document.querySelectorAll('article.pub')].filter(a => !a.hidden).length`;
+const visible = `[...document.querySelectorAll('article.pub')].filter(a => getComputedStyle(a).display !== 'none').length`;
 
 test('filter bar shows All + one pill per area, with counts', async () => {
   await withPage({}, async page => {
-    assert.equal(await page.evaluate(`document.querySelector('.area-filter').hidden`), false);
+    assert.notEqual(await page.evaluate(`getComputedStyle(document.querySelector('.area-filter')).display`), 'none');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""] .n').textContent`), '6');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').textContent`), '5');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="quantization"] .n').textContent`), '5');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""]').getAttribute('aria-pressed')`), 'true');
+  });
+});
+
+test('pills and chips read correctly to assistive tech and in plain text', async () => {
+  await withPage({}, async page => {
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').getAttribute('aria-label')`), ' (5 papers)');
+    const txt = await page.evaluate(`document.querySelector('.pub-areas').textContent.replace(/\\s+/g, ' ').trim()`);
+    assert.ok(txt.includes('Wireless Communications Edge AI'), txt);
+    await page.click('.area-pill[data-area="survey"]');
+    assert.equal(await page.evaluate(`document.querySelector('[data-filter-status]').textContent`), 'Showing 1 of 6 papers: Survey');
   });
 });
 
@@ -67,7 +77,7 @@ test('only the consolidated areas are offered', async () => {
 test('areas with no papers are not offered as pills', async () => {
   await withPage({}, async page => {
     const zero = await page.evaluate(`[...document.querySelectorAll('.area-pill[data-area]:not([data-area=""])')]
-      .filter(p => p.querySelector('.n').textContent === '0').map(p => ({ slug: p.dataset.area, hidden: p.hidden }))`);
+      .filter(p => p.querySelector('.n').textContent === '0').map(p => ({ slug: p.dataset.area, hidden: getComputedStyle(p).display === 'none' }))`);
     assert.ok(zero.length > 0, 'expected at least one empty area while projects are hidden');
     for (const z of zero) assert.equal(z.hidden, true, z.slug);
   });
@@ -118,7 +128,7 @@ test('rules follow the visible entries, not the DOM', async () => {
 test('no JavaScript: all papers visible, filter hidden', async () => {
   await withPage({ js: false }, async page => {
     assert.equal(await page.evaluate(visible), 6);
-    assert.equal(await page.evaluate(`document.querySelector('.area-filter').hidden`), true);
+    assert.equal(await page.evaluate(`getComputedStyle(document.querySelector('.area-filter')).display`), 'none');
   });
 });
 
@@ -143,7 +153,8 @@ for (const [titleWord, src] of REBUILT) {
       const img = await page.evaluate(`(async () => {
         const a = [...document.querySelectorAll('article.pub')].find(a => a.textContent.includes(${JSON.stringify(titleWord)}));
         const im = a.querySelector('img.pub-thumb');
-        if (!im.complete) await new Promise(r => im.onload = r);
+        im.loading = 'eager';
+        if (!im.complete) await new Promise((res, rej) => { im.onload = res; im.onerror = () => rej(new Error('image failed: ' + im.src)); setTimeout(() => rej(new Error('image timeout: ' + im.src)), 8000); });
         return { src: im.getAttribute('src'), w: im.naturalWidth, h: im.naturalHeight };
       })()`);
       assert.equal(img.src, src);

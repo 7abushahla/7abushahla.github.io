@@ -120,17 +120,23 @@ The approved figure is the reference for every other paper:
 rounds. These rules are what Hamza settled on:
 
 - **Content: a system diagram of the working system, input → output.**
-  Exactly four stages: **Input → Model → Model on hardware → Output**. Leave
-  out data preprocessing, training pipelines and dataset splits. Papers
-  without a hardware stage (writer ID, and the MCU review, which is a survey)
-  keep the 2×2 template but put that paper's own key stage in the third
-  panel. For example, writer ID could use the attention block, and the survey
-  could use the three MCU platform families. Propose that panel to Hamza
-  when showing the figure. Don't invent a deployment.
-- **Layout: a 2×2 grid of four equal panels** on a 600×375 canvas, with
-  arrows between them (right, then a bend down to the second row, then
-  right). The arrowhead must clear the bend and land on the panel edge, not
-  overlap the line.
+  The stages follow *each paper's own pipeline* (Hamza, during the build), not
+  a fixed four. Indoor: Input → Mixed-precision CNN → Deployment → Output.
+  Writer ID: Input line → BlockProcessor → End-to-end deep learning
+  architecture (one panel) → Writer identified. IDS: Traffic → Models → Edge /
+  Fog / Cloud device *levels* (no arrows between levels) → Classes. Spectrum:
+  I/Q samples → QAT CNN → Spresense → Spectrum holes. A survey is not a
+  deployment: the MCU review adapts the paper's own structural-overview figure
+  into three panels (Background → Systematic Review → Synthesis), methodology
+  omitted. Leave out preprocessing / training stages and dataset splits unless
+  they *are* a stage of the working system (BlockProcessor is).
+- **Layout: panels on a 600×375 canvas**, a 2×2 grid of four equal panels by
+  default (three columns for the survey), with arrows between them (right,
+  then a bend down to the second row, then right). The arrowhead must clear
+  the bend and land on the panel edge, not overlap the line. Every panel
+  carries a picture (plot, photo, drawing, icons), never only words; pictures
+  are drawn, not pasted screenshots, unless they are the paper's own plot or
+  board photo.
 - **Panel style:** copy Hamza's NICE 2027 paper figure
   (`/Users/hamza/Documents/GitHub/Thesis/00-Vault/04-Writing/2026-10-04 NICE 2027 Paper/figures/overview-focused.png`):
   a tinted header band with a bold title, thin dark-gray border, 10px
@@ -156,10 +162,14 @@ rounds. These rules are what Hamza settled on:
 - **Math is typeset as math** (STIX Two serif, bold Re/Im, italic variables
   and subscripts), not plain text with braces.
 - **Output panel:** small, neutral (white) icon tiles for the classes
-  (Google Material Symbols Rounded), then an "argmax → [icon] Class" line, as
-  in the NICE figure. **Only the argmax result is green.** Highlighting the
+  (Google Material Symbols Rounded), then an "output → [icon] Class" line
+  (Hamza renamed "argmax" to "output"). **Only the output result is green.** Highlighting the
   winning tile as well marked the prediction twice, so that was dropped. Room photos were rejected because they're illegible at thumbnail
   size. Score bars were rejected as fitting the NICE paper, not this one.
+  Icons without names are meaningless: every class tile has a label; with many
+  classes, group them into named families with counts (IDS: 13 → 5 families).
+  Numbers shown must be consistent with each other (the IDS badge and
+  latencies are both FP32; the paper found INT8 slower on these tiny models).
   Short labels are fine ("Class", not "Classroom").
 - **Rejected along the way (don't retry):**
   - invented illustrations
@@ -189,9 +199,12 @@ rounds. These rules are what Hamza settled on:
 **Later:** figures for `student-engagement` and the six course projects,
 once Hamza supplies sources (some projects link PDFs on GitHub).
 
-**16:10 applies only to the new figures this round.** The six papers keeping
+**16:10 applies only to the new figures this round.** Papers keeping
 their old screenshots also keep their natural aspect ratio. No CSS change
-forces, crops or letterboxes thumbnails (this respects the existing
+forces, crops or letterboxes thumbnails. (During the build Hamza asked for
+bigger figures: the `.pub` grid became 84px date / 292px figure / text at
+desktop, 76 / 244 at ≤900px; the text column gives up ~90px. The filter strip
+shares that grid so its label aligns with the date column.) (this respects the existing
 `/* natural aspect — never crop the figure */` rule). Rows even out as the
 remaining figures are replaced. *(Proposed by Claude, agreed by Hamza.)*
 
