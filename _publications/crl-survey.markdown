@@ -2,7 +2,7 @@
 title:  "Continual Reinforcement Learning: A Survey of Current Trends, Challenges, and the Road Ahead"
 date:   2025-05-30 09:00:00 +00:00
 image: /images/CRL-survey.png
-course: MLR555 Suvey
+course: MLR555 Survey
 author: "Hamza Ahmed Abushahla"
 authors: "<strong>Hamza Abushahla</strong>, Ariel Justine Panopio, Layth Al-Khairulla, and Omar Arif"
 code: 
