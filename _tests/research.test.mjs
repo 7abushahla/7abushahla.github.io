@@ -121,6 +121,7 @@ test('phone width: filter wraps, no horizontal scroll', async () => {
 const REBUILT = [
   ['Sub-Millisecond', '/images/fig-indoor-rf.png'],
   ['Different Strokes', '/images/fig-writer-id.png'],
+  ['From Sensor to Server', '/images/fig-ids-iot.png'],
 ];
 
 for (const [titleWord, src] of REBUILT) {

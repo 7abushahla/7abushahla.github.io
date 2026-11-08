@@ -1,7 +1,7 @@
 ---
 title:  "From Sensor to Server: Deployable Lightweight ML for IoT Intrusion Detection Across Network Layers"
 date:   2026-04-03 09:00:00 +00:00
-image: /images/IDS.jpg
+image: /images/fig-ids-iot.png
 author: "Hamza A. Abushahla"
 authors: "Ariel Justine N. Panopio, <strong>Hamza A. Abushahla</strong>, Ali Reza Sajun, Sameer Alawnah, Fadi Aloul, and Imran Zualkernan"
 venue: "IEEE Internet of Things Journal"
