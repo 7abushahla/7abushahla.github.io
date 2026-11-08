@@ -88,10 +88,10 @@ the rest of the site.
 |---|---|
 | `indoor-rf` | Wireless Communications · Edge AI · Quantization · Microcontrollers |
 | `writer-id` | Document Analysis · Computer Vision |
-| `ids-iot` | Network Security · Edge AI |
+| `ids-iot` | Network Security · Edge AI · Quantization |
 | `mcu-quantization-survey` | Quantization · Edge AI · Microcontrollers · Survey |
 | `qat-spectrum` | Wireless Communications · Edge AI · Quantization · Microcontrollers |
-| `student-engagement` | Computer Vision · Edge AI |
+| `student-engagement` | Computer Vision · Edge AI · Quantization · Microcontrollers |
 | `spectrum-sdp` | Wireless Communications · Edge AI |
 | `arabic-htr` | Document Analysis · Computer Vision |
 | `crl-survey` | Reinforcement Learning · Survey |

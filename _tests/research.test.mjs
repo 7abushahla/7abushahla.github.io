@@ -44,6 +44,7 @@ test('filter bar shows All + one pill per area, with counts', async () => {
     assert.equal(await page.evaluate(`document.querySelector('.area-filter').hidden`), false);
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""] .n').textContent`), '6');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').textContent`), '5');
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="quantization"] .n').textContent`), '5');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""]').getAttribute('aria-pressed')`), 'true');
   });
 });
