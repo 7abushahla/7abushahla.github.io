@@ -43,7 +43,7 @@ the rest of the site.
   Poster / Slides / Webpage) and the italic summary all stay.
 - Invented illustrations, stock art, or "headline number" cards replacing the
   figures. Hamza rejected these explicitly. The figure must come from the
-  paper's own content.
+  paper's own content, in the approved template below.
 - Tags shown as plain text, mono labels, eyebrows or margin notes. Hamza
   rejected these. They must be **defined chips**.
 
@@ -106,20 +106,68 @@ surveys). The list lives in data and can change freely.
 - Each figure **comes from the paper itself**: usually the overview/method
   figure, sometimes the key result. It is **rebuilt for the website**, not
   screenshotted.
-- Rebuilt means:
-  - **One fixed aspect ratio for all papers: 16:10.** Today each thumbnail
-    keeps its natural ratio (`.pub-thumb { height:auto }`), so rows end up
-    different heights.
-  - **Readable at the slot size.** Desktop thumbnail column is 168px wide.
-    On mobile (≤760px) the thumbnail goes full width. Cut labels and detail to
-    what reads at 168px, enlarge the rest, keep the central idea.
-  - **Consistent across papers.** Site palette (ink `#11161C`, secondary
-    `#5C6670`, rule `#DCE0E1`, accent teal `#0B7A6A`) and site type (Archivo
-    for labels, IBM Plex Mono for small annotations), so the set reads as one
-    family, not five journals' styles.
-- Claude picks the figure from each paper, and Hamza reviews each rebuilt
-  figure before it replaces the old one.
-- Each figure is made by hand per paper, not by a generic script.
+- **One fixed aspect ratio for all papers: 16:10.** Today each thumbnail
+  keeps its natural ratio (`.pub-thumb { height:auto }`), so rows end up
+  different heights.
+- Hamza reviews each rebuilt figure before it replaces the old one. Each is
+  made by hand per paper, not by a generic script.
+
+#### Approved figure template (settled with Hamza on the indoor paper)
+
+The approved figure is the reference for every other paper:
+`docs/superpowers/specs/figure-reference/indoor-rf/indoor-rf.html`
+(rendered `indoor-rf.png`, with its assets alongside). It went through many
+rounds. These rules are what Hamza settled on:
+
+- **Content: a system diagram of the working system, input → output.**
+  Exactly four stages: **Input → Model → Model on hardware → Output**. Leave
+  out data preprocessing, training pipelines and dataset splits. Papers
+  without a hardware stage (writer ID, and the MCU review, which is a survey)
+  keep the 2×2 template but put that paper's own key stage in the third
+  panel. For example, writer ID could use the attention block, and the survey
+  could use the three MCU platform families. Propose that panel to Hamza
+  when showing the figure. Don't invent a deployment.
+- **Layout: a 2×2 grid of four equal panels** on a 600×375 canvas, with
+  arrows between them (right, then a bend down to the second row, then
+  right). The arrowhead must clear the bend and land on the panel edge, not
+  overlap the line.
+- **Panel style:** copy Hamza's NICE 2027 paper figure
+  (`/Users/hamza/Documents/GitHub/Thesis/00-Vault/04-Writing/2026-10-04 NICE 2027 Paper/figures/overview-focused.png`):
+  a tinted header band with a bold title, thin dark-gray border, 10px
+  radius, light body tint, Helvetica.
+- **Each panel gets a clearly distinct hue.** Indoor uses: input yellow
+  (`#F2DF9C` / `#FBF4DA`), model blue (`#C6DAF0` / `#E8F1FB`), hardware pink
+  (`#F1CACA` / `#FBEDED`), output lavender (`#DACDF0` / `#F3EEFB`). Tints that
+  are too close to each other were rejected.
+- **Color only where it means something.** In the network drawing, node
+  color encodes bit width (blue for 8-bit layers, green for 2-bit), with
+  matching bit-width tags under the layers. The argmax result uses the same
+  green as the network's output layer. Don't copy colors from another
+  paper's figure just because they were there.
+- **Nothing too small to read at thumbnail size.** No caption or explanation
+  lines inside panels (Hamza removed them). Contents are centered in each
+  panel and fill it without crowding. Oversized elements were rejected, and
+  so were empty-looking panels.
+- **Use real things from the paper:** its actual plots, its board photo, and
+  its real numbers (the indoor figure shows "< 1 ms latency" and
+  "≈ 28 µJ energy", from the paper's best MPQ configuration, 178.8 µs /
+  27.871 µJ). Every metric shown gets a value. Don't repeat a word in a panel
+  that is already in its title (e.g. the board name).
+- **Math is typeset as math** (STIX Two serif, bold Re/Im, italic variables
+  and subscripts), not plain text with braces.
+- **Output panel:** small, neutral (white) icon tiles for the classes
+  (Google Material Symbols Rounded), then an "argmax → [icon] Class" line, as
+  in the NICE figure. **Only the argmax result is green.** Highlighting the
+  winning tile as well marked the prediction twice, so that was dropped. Room photos were rejected because they're illegible at thumbnail
+  size. Score bars were rejected as fitting the NICE paper, not this one.
+  Short labels are fine ("Class", not "Classroom").
+- **Rejected along the way (don't retry):**
+  - invented illustrations
+  - "headline number" cards
+  - photo collages
+  - saturated paper colors behind the network
+  - preprocessing and training stages
+  - a journal name inside the figure
 
 ## Scope of this round
 
@@ -171,10 +219,10 @@ remaining figures are replaced. *(Proposed by Claude, agreed by Hamza.)*
   *(Suggest most-used first.)*
 - The exact markup/CSS for the filter bar and chips, within the style rules
   above.
-- Figure file format and resolution. Note that an SVG used via `<img>` can't
-  load web fonts, so either outline text in SVGs or export raster (e.g.
-  1200×750 PNG/WebP). New files go in `images/`, and old images stay until the
-  new ones are approved.
+- Figure rendering: author each figure as an HTML page (like the reference)
+  and rasterize it with headless Chrome to a 1200×750 PNG
+  (`--window-size=600,375 --force-device-scale-factor=2`). New files go in
+  `images/`, and old images stay until the new ones are approved.
 - How thumbnails behave in dark mode. *(Today they're white images with a
   border on the dark background. Keeping that is fine.)*
 - Which candidate figure to adapt per paper. Hamza reviews the result.

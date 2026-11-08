@@ -21,7 +21,7 @@
 - No JS: all papers show and the filter bar is hidden.
 - Light and dark themes via existing tokens only. Must work at the 900 / 760 / 420px breakpoints with no horizontal scroll at phone width.
 - No new Jekyll plugins and no JS frameworks.
-- Figures: from the paper's own figures, **16:10**, rebuilt (not cropped screenshots), readable at 168px wide, site palette (`#11161C`, `#5C6670`, `#DCE0E1`, `#0B7A6A`) and type (Archivo labels, IBM Plex Mono annotations). Hamza approves each before it replaces the old image. Old image files stay in `images/`.
+- Figures: **follow the approved template** in the spec ("Approved figure template") and copy the reference `docs/superpowers/specs/figure-reference/indoor-rf/indoor-rf.html`. That means a 2×2 grid of NICE-style panels (Input → Model → Model on hardware → Output), a distinct hue per panel, color only where it means something, no small text, the paper's real plots/photos/numbers, and only the argmax result in green. **16:10**, 1200×750 PNG. Hamza approves each before it replaces the old image. Old image files stay in `images/`.
 - 16:10 applies to the new figures only. No CSS change crops, forces or letterboxes `.pub-thumb` (`height:auto` stays).
 - Commit messages end with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`. Work on branch `research-page`.
 
@@ -260,29 +260,28 @@ test('phone width: filter wraps, no horizontal scroll', async () => {
 
 Each figure task follows these steps. The per-task section only gives what's specific to that paper.
 
-- **F1. Study the source.** Render the candidate source figures to PNG for viewing with PyMuPDF (`python3 -I -c "import fitz,sys; d=fitz.open(sys.argv[1]); d[0].get_pixmap(dpi=200).save(sys.argv[2])" <src.pdf> <scratch>/<name>.png`). Read the figure's caption and the surrounding section in the `.tex`. EPS: convert with `gs -sDEVICE=png16m -r200 -o out.png in.eps`. Pick the one figure that best carries the paper's main idea.
-- **F2. Author `_figures/<slug>.html`.** A full HTML document with `<body style="margin:0">` and one 600×375 CSS-px root element (16:10). Load Archivo + IBM Plex Mono from Google Fonts, draw inline SVG and/or HTML, white background. Keep the source figure's structure and content but re-lay it out for 16:10: fewer labels, larger text (no text smaller than 11 CSS px, which is ~3px at the 168px thumbnail and readable on the full-width mobile view), and the site palette with teal for the one key element. Photos or renders that appear in the source figure (boards, scenes) may be embedded as cropped raster pieces copied into `_figures/assets/`.
+- **F1. Study the source.** Render the candidate source figures to PNG for viewing with PyMuPDF (`python3 -I -c "import fitz,sys; d=fitz.open(sys.argv[1]); d[0].get_pixmap(dpi=200).save(sys.argv[2])" <src.pdf> <scratch>/<name>.png`). Read the figure's caption and the surrounding section in the `.tex`. EPS: convert with `gs -sDEVICE=png16m -r200 -o out.png in.eps`. Identify this paper's working system (input → model → model on hardware → output) and the real plots, photos and numbers to use in each panel.
+- **F2. Author `_figures/<slug>.html`** by copying the reference `docs/superpowers/specs/figure-reference/indoor-rf/indoor-rf.html` and changing only the panel contents and titles. Keep the structure, CSS, panel hues pattern (distinct per panel), arrows and type. Fill the four panels with this paper's input, model, hardware and output, and follow every rule in the spec's "Approved figure template" (no caption lines, centered contents, real numbers, math typeset, neutral output tiles with a green argmax result). Pick the panel hues so all four stay clearly distinct. Assets go in `_figures/assets/`.
 - **F3. Write `_tools/render-figure.sh <slug>`** (first figure task only, then reused). Run Chrome headless `--screenshot=images/fig-<slug>.png --window-size=600,375 --force-device-scale-factor=2 --hide-scrollbars --virtual-time-budget=3000 file://$PWD/_figures/<slug>.html`.
   Verify: `sips -g pixelWidth -g pixelHeight images/fig-<slug>.png` prints 1200 and 750.
 - **F4. Review with Hamza.** Push a visual-companion screen showing the current image and the new one side by side at 168px wide, and the new one at ~375px (mobile). Iterate on F2 until Hamza approves. Do not continue without approval.
 - **F5. Swap.** Set `image: /images/fig-<slug>.png` in the paper's front matter. Run `bash _tests/run.sh` (all pass). Commit `_figures/<slug>.html _figures/assets/ images/fig-<slug>.png _publications/<file> [_tools/render-figure.sh]` with message `Add website figure for <short paper name>`.
 
 ### Task 4: Figure: indoor environment ID (`indoor-rf`)
-- Sources: `/Users/hamza/Downloads/prev-papers/Indoor Environment Quantization/Figures/`. Lead candidate `pipeline.pdf` (preprocessing → (α, b) config space → QAT/MPQ → MAX78002 deployment). Alternatives: `pareto.pdf`, and the scene photos `class/corridor/lab/sports.pdf`.
-- The figure must convey: RF channel measurement → layer-wise mixed-precision quantized CNN → MAX78002 → environment class. Hamza called the current image underselling, so the quantization/MPQ step must be visible, not just "test sample → board".
+- **Already designed and approved by Hamza.** Port it, don't redesign it. Copy `docs/superpowers/specs/figure-reference/indoor-rf/indoor-rf.html` to `_figures/indoor-rf.html`, and its assets (`re.png`, `im.png`, `board.jpeg`) to `_figures/assets/`, fixing the image paths. Render with F3 and check that the output matches `figure-reference/indoor-rf/indoor-rf.png`. F4 is a quick confirmation only, then F5.
 - Also writes `_tools/render-figure.sh` (F3).
 
 ### Task 5: Figure: Arabic writer identification (`writer-id`)
 - Sources: `/Users/hamza/Downloads/prev-papers/Writer_Identification_IJDAR__Arxiv_/figs/`. Lead candidate `fig6.pdf` (end-to-end architecture with optional attention path). Use `fig1.png` (real Muharaf manuscript lines) as the input imagery.
-- Must convey: historical Arabic manuscript line → CNN + attention → writer identity (up to two writers per line).
+- Panels: Input (real Muharaf manuscript line from `fig1.png`) → Model (CNN) → third panel = attention block, since there's no hardware stage (propose it to Hamza) → Output (writer identity, up to two writers per line, argmax-style).
 
 ### Task 6: Figure: IoT intrusion detection (`ids-iot`)
 - Sources: `/Users/hamza/Downloads/prev-papers/The Security Paper (IEEE)/figures/`. Candidates `panop2.pdf` (framework: preprocessing → models → deployment on hardware) and `panop1.pdf` (edge / fog / cloud layers).
-- Must convey: lightweight ML IDS deployable across edge, fog and cloud layers.
+- Panels: Input (network traffic flows) → Model (lightweight ML / FCNN) → Model on hardware (edge / fog / cloud devices from the paper) → Output (benign vs attack classes, argmax-style). Use the paper's real deployment numbers.
 
 ### Task 7: Figure: MCU quantization review (`mcu-quantization-survey`)
 - Sources: `/Users/hamza/Downloads/prev-papers/Neural Network Quantization for Microcontrollers/`. Candidates `Fig16.pdf` (deployment pipeline on MCU-class devices), `Fig1.pdf` (survey structure), `Fig7.pdf` (QAT vs PTQ).
-- Must convey: the survey's scope (quantization methods → ARM / RISC-V / NPU MCU platforms → toolchains/applications).
+- A survey has no single system, so map the 2×2 onto its scope: FP32 model → quantization methods → MCU platform families (ARM / RISC-V / NPU) → applications. Propose that mapping to Hamza at F4.
 
 ### Task 8: Figure: cognitive radio spectrum sensing (`qat-spectrum`)
 - Source: `/Users/hamza/Documents/GitHub/Spectrum-Sensing/Spectrum Sensing System Diagram.png` (≈3.4:1; Hamza's choice). Chain: PUs → I/Q samples → preprocessing (window N=128/32, z-score) → DeepSense / ParallelCNN with QAT → FP32/INT8 × N=128/32 → Sony Spresense → spectrum-hole detection.
