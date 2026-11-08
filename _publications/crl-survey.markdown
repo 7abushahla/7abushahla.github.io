@@ -1,4 +1,6 @@
 ---
+# Hidden for now (course/uni project); remove the next line to show it again.
+published: false
 title:  "Continual Reinforcement Learning: A Survey of Current Trends, Challenges, and the Road Ahead"
 date:   2025-05-30 09:00:00 +00:00
 image: /images/CRL-survey.png

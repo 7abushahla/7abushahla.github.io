@@ -1,4 +1,6 @@
 ---
+# Hidden for now (course/uni project); remove the next line to show it again.
+published: false
 title:  "From Script to Digital: A Deep Learning Approach to Arabic Handwriting Recognition"
 date:   2024-12-05 09:00:00 +00:00
 image: /images/MLR503.png

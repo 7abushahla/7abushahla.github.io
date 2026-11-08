@@ -2,9 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { withPage } from './lib/browser.mjs';
 
-test('research page renders all 11 papers', async () => {
+test('research page renders the 6 published papers', async () => {
   await withPage({}, async page => {
-    assert.equal(await page.evaluate('document.querySelectorAll("article.pub").length'), 11);
+    assert.equal(await page.evaluate('document.querySelectorAll("article.pub").length'), 6);
   });
 });
 
@@ -42,8 +42,8 @@ const visible = `[...document.querySelectorAll('article.pub')].filter(a => !a.hi
 test('filter bar shows All + one pill per area, with counts', async () => {
   await withPage({}, async page => {
     assert.equal(await page.evaluate(`document.querySelector('.area-filter').hidden`), false);
-    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""] .n').textContent`), '11');
-    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').textContent`), '6');
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""] .n').textContent`), '6');
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').textContent`), '5');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""]').getAttribute('aria-pressed')`), 'true');
   });
 });
@@ -63,11 +63,20 @@ test('only the consolidated areas are offered', async () => {
   });
 });
 
+test('areas with no papers are not offered as pills', async () => {
+  await withPage({}, async page => {
+    const zero = await page.evaluate(`[...document.querySelectorAll('.area-pill[data-area]:not([data-area=""])')]
+      .filter(p => p.querySelector('.n').textContent === '0').map(p => ({ slug: p.dataset.area, hidden: p.hidden }))`);
+    assert.ok(zero.length > 0, 'expected at least one empty area while projects are hidden');
+    for (const z of zero) assert.equal(z.hidden, true, z.slug);
+  });
+});
+
 test('selecting an area filters papers and hides empty sections', async () => {
   await withPage({}, async page => {
     await page.click('.area-pill[data-area="network-security"]');
     assert.equal(await page.evaluate(visible), 1);
-    assert.equal(await page.evaluate(`document.querySelector('[data-section]:last-of-type').hidden`), true); // Research Projects
+    assert.equal(await page.evaluate(`document.querySelectorAll('[data-section]').length`), 1); // only Publications renders while projects are hidden
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="network-security"]').getAttribute('aria-pressed')`), 'true');
   });
 });
@@ -75,9 +84,9 @@ test('selecting an area filters papers and hides empty sections', async () => {
 test('clicking the active pill returns to All', async () => {
   await withPage({}, async page => {
     await page.click('.area-pill[data-area="edge-ai"]');
-    assert.equal(await page.evaluate(visible), 6);
+    assert.equal(await page.evaluate(visible), 5);
     await page.click('.area-pill[data-area="edge-ai"]');
-    assert.equal(await page.evaluate(visible), 11);
+    assert.equal(await page.evaluate(visible), 6);
   });
 });
 
@@ -85,16 +94,16 @@ test('paper chips are labels, not filter buttons', async () => {
   await withPage({}, async page => {
     assert.equal(await page.evaluate(`document.querySelectorAll('.pub-areas button, .pub-areas a').length`), 0);
     await page.click('.pub-areas [data-area="survey"]');
-    assert.equal(await page.evaluate(visible), 11);
+    assert.equal(await page.evaluate(visible), 6);
     await page.click('.area-pill[data-area="survey"]');
-    assert.equal(await page.evaluate(visible), 3);
-    assert.equal(await page.evaluate(`document.querySelectorAll('.pub-areas .chip.is-on').length`), 3);
+    assert.equal(await page.evaluate(visible), 1);
+    assert.equal(await page.evaluate(`document.querySelectorAll('.pub-areas .chip.is-on').length`), 1);
   });
 });
 
 test('rules follow the visible entries, not the DOM', async () => {
   await withPage({}, async page => {
-    await page.click('.area-pill[data-area="reinforcement-learning"]'); // only projects match
+    await page.click('.area-pill[data-area="document-analysis"]'); // one paper, mid-list
     const r = await page.evaluate(`(() => {
       const sec = [...document.querySelectorAll('[data-section]')].find(s => !s.hidden);
       const pubs = [...sec.querySelectorAll('article.pub')].filter(a => !a.hidden);
@@ -107,7 +116,7 @@ test('rules follow the visible entries, not the DOM', async () => {
 
 test('no JavaScript: all papers visible, filter hidden', async () => {
   await withPage({ js: false }, async page => {
-    assert.equal(await page.evaluate(visible), 11);
+    assert.equal(await page.evaluate(visible), 6);
     assert.equal(await page.evaluate(`document.querySelector('.area-filter').hidden`), true);
   });
 });

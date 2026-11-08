@@ -1,4 +1,6 @@
 ---
+# Hidden for now (course/uni project); remove the next line to show it again.
+published: false
 title:  "Diffusion Disruption: A Systematic Review of the Synthetic Sequential Data Revolution"
 date:   2025-05-31 09:00:00 +00:00
 image: /images/Diffusion-survey.png

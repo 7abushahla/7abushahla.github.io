@@ -1,4 +1,6 @@
 ---
+# Hidden for now (course/uni project); remove the next line to show it again.
+published: false
 title:  "Cognitive Radio Spectrum Sensing and Allocation: A Low-Complexity Deep Learning Approach"
 date:   2024-05-04 09:00:00 +00:00
 image: /images/SDP.png

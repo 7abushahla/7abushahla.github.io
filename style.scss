@@ -583,16 +583,19 @@ a {
 .chip.is-on { color: var(--live); border-color: var(--live); background: var(--live-soft); }
 
 /* Research area filter (shown by research-filter.js). */
+/* Same two-column grid as the entries below: label in the date column
+   (right-aligned, like "PUBLISHED"), pills start at the figure column. */
 .area-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: var(--gap);
+  align-items: start;
   margin: 18px 0 8px;
 
   &[hidden] { display: none; }
-  .mono { margin-right: 6px; }
 }
+.area-filter-label { text-align: right; padding-top: 7px; }
+.area-pills { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .area-pill {
   font-family: var(--font-display);
@@ -614,7 +617,7 @@ a {
 }
 
 /* Filtering hides entries and whole sections; rules follow what's visible. */
-.pub[hidden], .band[hidden] { display: none; }
+.pub[hidden], .band[hidden], .area-pill[hidden] { display: none; }
 .entries > .is-last { border-bottom: 0; }
 .band.is-first { border-top: 0; }
 
@@ -889,6 +892,7 @@ a {
   .kv { grid-template-columns: 1fr; gap: 0; }
   .kv dd { border-top: 0; padding-top: 0; }
   .pub { grid-template-columns: 76px 244px 1fr; }
+  .area-filter { grid-template-columns: 76px 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -944,6 +948,8 @@ a {
   /* Publications go single-column: keeping the logo gutter left the text in a
      narrow second column with dead space beside the figure. */
   .pub { grid-template-columns: 1fr; gap: 12px; }
+  .area-filter { grid-template-columns: 1fr; gap: 8px; }
+  .area-filter-label { text-align: left; padding-top: 0; }
   .pub-thumb { grid-column: 1; max-width: 100%; }
 
   /* Stacked end-over-start reads fine in a column, but collapsed onto one

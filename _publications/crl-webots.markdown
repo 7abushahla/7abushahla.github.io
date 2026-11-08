@@ -1,4 +1,6 @@
 ---
+# Hidden for now (course/uni project); remove the next line to show it again.
+published: false
 title:  "Navigate Without Forgetting: Continual Reinforcement Learning for Mobile Robot Navigation in Webots"
 date:   2025-05-20 09:00:00 +00:00
 image: /images/webots-CRL.png

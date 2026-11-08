@@ -11,11 +11,13 @@ permalink: /research/
 
 {% comment %} Area filter: hidden until research-filter.js runs, so no-JS visitors just see every paper. {% endcomment %}
 <nav class="area-filter" aria-label="Filter by area" hidden>
-  <span class="mono">Filter by area</span>
-  <button type="button" class="area-pill" data-area="">All<span class="n"></span></button>
-  {%- for a in site.data.research_areas %}
-  <button type="button" class="area-pill" data-area="{{ a | slugify }}">{{ a }}<span class="n"></span></button>
-  {%- endfor %}
+  <span class="mono area-filter-label">Filter by area</span>
+  <div class="area-pills">
+    <button type="button" class="area-pill" data-area="">All<span class="n"></span></button>
+    {%- for a in site.data.research_areas %}
+    <button type="button" class="area-pill" data-area="{{ a | slugify }}">{{ a }}<span class="n"></span></button>
+    {%- endfor %}
+  </div>
 </nav>
 
 {% if published.size > 0 %}

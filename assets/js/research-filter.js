@@ -19,6 +19,8 @@
     var n = slug ? pubs.filter(function (p) { return areasOf(p).indexOf(slug) !== -1; }).length : pubs.length;
     var out = pill.querySelector('.n');
     if (out) out.textContent = String(n);
+    // An area with no visible paper (e.g. while some entries are unpublished) is not offered.
+    if (n === 0) pill.hidden = true;
   });
 
   function apply(slug) {
