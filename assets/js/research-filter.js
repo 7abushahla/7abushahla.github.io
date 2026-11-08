@@ -1,6 +1,6 @@
-// Research page area filter. Single-select; clicking the active area (pill or
-// paper chip) clears back to All. Without this script every paper stays visible
-// and the filter bar stays hidden.
+// Research page area filter. Single-select; clicking the active pill clears
+// back to All. Chips on each paper are labels only; they just highlight.
+// Without this script every paper stays visible and the filter bar stays hidden.
 (function () {
   var nav = document.querySelector('.area-filter');
   if (!nav) return;
@@ -52,7 +52,7 @@
   }
 
   document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.area-pill, .pub-areas .chip');
+    var btn = e.target.closest('.area-pill');
     if (!btn) return;
     var slug = btn.getAttribute('data-area') || null;
     apply(slug === null || slug === current ? null : slug);

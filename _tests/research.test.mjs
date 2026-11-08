@@ -56,6 +56,12 @@ test('every paper area has a pill (catches front-matter typos)', async () => {
   });
 });
 
+test('Diffusion is not offered as an area', async () => {
+  await withPage({}, async page => {
+    assert.equal(await page.evaluate(`document.querySelectorAll('[data-area="diffusion"]').length`), 0);
+  });
+});
+
 test('selecting an area filters papers and hides empty sections', async () => {
   await withPage({}, async page => {
     await page.click('.area-pill[data-area="network-security"]');
@@ -65,17 +71,23 @@ test('selecting an area filters papers and hides empty sections', async () => {
   });
 });
 
-test('clicking the active pill, or a paper chip twice, returns to All', async () => {
+test('clicking the active pill returns to All', async () => {
   await withPage({}, async page => {
     await page.click('.area-pill[data-area="edge-ai"]');
     assert.equal(await page.evaluate(visible), 6);
     await page.click('.area-pill[data-area="edge-ai"]');
     assert.equal(await page.evaluate(visible), 11);
+  });
+});
+
+test('paper chips are labels, not filter buttons', async () => {
+  await withPage({}, async page => {
+    assert.equal(await page.evaluate(`document.querySelectorAll('.pub-areas button, .pub-areas a').length`), 0);
     await page.click('.pub-areas [data-area="survey"]');
+    assert.equal(await page.evaluate(visible), 11);
+    await page.click('.area-pill[data-area="survey"]');
     assert.equal(await page.evaluate(visible), 3);
     assert.equal(await page.evaluate(`document.querySelectorAll('.pub-areas .chip.is-on').length`), 3);
-    await page.click('.pub-areas .chip.is-on');
-    assert.equal(await page.evaluate(visible), 11);
   });
 });
 

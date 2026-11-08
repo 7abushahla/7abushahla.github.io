@@ -577,15 +577,9 @@ a {
 
 .chip-domain { color: var(--ink); border-color: var(--ink-2); }
 
-/* Area chips under each publication; they double as filter buttons. */
+/* Area labels under each publication (filtering lives in the top strip). */
 .pub-areas { margin: 12px 0 0; }
-.pub-areas .chip {
-  background: transparent;
-  line-height: 1.4;
-  cursor: pointer;
-  &:hover { color: var(--live); border-color: var(--live); }
-  &:focus-visible { outline: 2px solid var(--live); outline-offset: 2px; }
-}
+.pub-areas .chip { line-height: 1.4; }
 .chip.is-on { color: var(--live); border-color: var(--live); background: var(--live-soft); }
 
 /* Research area filter (shown by research-filter.js). */

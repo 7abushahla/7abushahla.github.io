@@ -64,8 +64,8 @@ the rest of the site.
 - **Style:** the existing `.chip` / `.chip-domain` look in `style.scss`
   (Archivo, ~.75rem, 2px radius, 1px border, dark-ish border for areas).
   This is the "defined chips" look Hamza preferred over every lighter option.
-- Clicking a chip on a paper applies the same filter as the filter bar.
-  Clicking the active one again clears it.
+- Chips on a paper are **labels only, not buttons**. Filtering is the job of
+  the top strip alone (Hamza, during the build).
 - The chip matching the active filter is highlighted (teal border, soft teal
   background, using `--live` / `--live-soft`).
 
@@ -96,7 +96,7 @@ the rest of the site.
 | `arabic-htr` | Arabic Manuscripts · Document Analysis · Computer Vision |
 | `crl-survey` | Reinforcement Learning · Continual Learning · Survey |
 | `crl-webots` | Reinforcement Learning · Continual Learning · Robotics |
-| `diffusion-survey` | Generative Models · Diffusion · Survey |
+| `diffusion-survey` | Generative Models · Synthetic Data · Survey |
 
 Hamza accepted the draft list and the additions that bring every paper to his
 "at least 3" rule (Computer Vision on `arabic-htr`, "Survey" on the three
