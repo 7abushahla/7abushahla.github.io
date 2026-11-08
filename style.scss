@@ -577,6 +577,17 @@ a {
 
 .chip-domain { color: var(--ink); border-color: var(--ink-2); }
 
+/* Area chips under each publication; they double as filter buttons. */
+.pub-areas { margin: 12px 0 0; }
+.pub-areas .chip {
+  background: transparent;
+  line-height: 1.4;
+  cursor: pointer;
+  &:hover { color: var(--live); border-color: var(--live); }
+  &:focus-visible { outline: 2px solid var(--live); outline-offset: 2px; }
+}
+.chip.is-on { color: var(--live); border-color: var(--live); background: var(--live-soft); }
+
 .links { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .links a {

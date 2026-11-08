@@ -10,5 +10,6 @@ code: https://github.com/7abushahla/Student-Engagement
 slides: https://drive.google.com/file/d/18fS1IOXbFVyzDYwdRmXKf6EGfvyUbGWV/view?usp=share_link
 status: published
 domain: Vision
+areas: ["Computer Vision", "Edge AI", "Privacy"]
 ---
 This work explores the deployment of deep learning models on resource-constrained edge devices to monitor student engagement in real time, with an emphasis on efficiency and privacy.

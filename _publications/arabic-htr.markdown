@@ -10,5 +10,6 @@ paper: https://github.com/7abushahla/MLR503-Project/blob/main/From%20Script%20to
 slides: https://github.com/7abushahla/MLR503-Project/blob/main/MLR503_PPT.pptx
 status: project
 domain: Document
+areas: ["Arabic Manuscripts", "Document Analysis", "Computer Vision"]
 ---
 This was my MLR503: Data Mining and Knowledge Discovery Course Research Project. We developed an end-to-end deep learning-based handwritten text recognition (HTR) system for Arabic script leveraging the KHATT Dataset. To further enhance recognition accuracy, we incorporated KenLM for post-processing.

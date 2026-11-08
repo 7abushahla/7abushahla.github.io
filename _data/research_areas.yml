@@ -1,0 +1,20 @@
+# Research areas, in filter-bar order (most-used first).
+# Each publication lists its areas in front matter under `areas:`; names must match these exactly.
+- Edge AI
+- Wireless Communications
+- Quantization
+- Computer Vision
+- Survey
+- Cognitive Radio
+- Microcontrollers
+- Document Analysis
+- Arabic Manuscripts
+- Reinforcement Learning
+- Continual Learning
+- Radio
+- Network Security
+- IoT
+- Privacy
+- Robotics
+- Generative Models
+- Diffusion

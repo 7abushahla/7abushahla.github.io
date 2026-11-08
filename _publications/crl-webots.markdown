@@ -9,5 +9,6 @@ code: https://github.com/7abushahla/Continual-RL-Webots/
 paper: 
 status: project
 domain: Robotics
+areas: ["Reinforcement Learning", "Continual Learning", "Robotics"]
 ---
 This project implements a Continual Reinforcement Learning (CRL) framework for mobile robot navigation using the e-puck robot in Webots. We design a unified agent trained sequentially across multiple tasks—maze navigation, line following, and obstacle avoidance—using Soft Actor-Critic (SAC). The setup evaluates the agent’s ability to learn new behaviors while retaining previously acquired skills.

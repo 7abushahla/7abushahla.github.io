@@ -10,6 +10,7 @@ arxiv: https://arxiv.org/abs/2604.22515
 code: https://github.com/7abushahla/Muharaf-Writer-Identification
 status: published
 domain: Document
+areas: ["Arabic Manuscripts", "Document Analysis", "Computer Vision"]
 impact: ["Q2", "IF 2.5", "74th percentile"]
 ---
 

@@ -9,6 +9,7 @@ paper: https://ieeexplore.ieee.org/document/11474516
 code: https://github.com/7abushahla/lightweight-IoT-IDS
 status: published
 domain: Network
+areas: ["Network Security", "IoT", "Edge AI"]
 impact: ["Q1", "IF 8.9", "97th percentile"]
 ---
 

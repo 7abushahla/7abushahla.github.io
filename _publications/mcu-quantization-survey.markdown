@@ -9,6 +9,7 @@ paper: https://arxiv.org/abs/2508.15008
 code:
 status: published
 domain: Microcontrollers
+areas: ["Quantization", "Edge AI", "Microcontrollers", "Survey"]
 ---
 
 We comprehensively review the quantization landscape, specifically for microcontroller-class (MCUs) devices. The survey covers advanced quantization techniques, hardware platforms as part of three families (ARM-based, RISC-V-based and NPU-based), software toolchains, and applications.

@@ -1,6 +1,7 @@
 {% comment %} Params: p (a document from the publications collection) {% endcomment %}
 {% assign p = include.p %}
-<article class="pub">
+{% capture area_slugs %}{% for a in p.areas %} {{ a | slugify }}{% endfor %}{% endcapture %}
+<article class="pub" data-areas="{{ area_slugs | strip }}">
 
   <div class="entry-date mono">
     <b>{{ p.date | date: "%Y" }}</b>
@@ -49,6 +50,12 @@
 
     {% if p.content and p.content != '' %}
       <div class="pub-summary">{{ p.content | strip_html | strip_newlines | strip }}</div>
+    {% endif %}
+
+    {% if p.areas and p.areas.size > 0 %}
+      <div class="chips pub-areas">
+        {% for a in p.areas %}<button type="button" class="chip chip-domain" data-area="{{ a | slugify }}">{{ a }}</button>{% endfor %}
+      </div>
     {% endif %}
   </div>
 </article>
