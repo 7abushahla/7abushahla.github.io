@@ -999,7 +999,11 @@ a {
 
   .entry, .cert-list li { grid-template-columns: 1fr; gap: 10px; }
   .entry-mark { margin-bottom: 2px; }
-  .entry-wide { --mark-col: 100%; }
+  /* Single column: the mark column is the full width, so cap wordmarks at a
+     logo-like size instead of letting them span the screen. The two marks keep
+     their 100% / 85% proportion within that cap. */
+  .entry-wide .entry-mark { width: 180px; }
+  .entry-wide .entry-mark-pair { gap: 10px; }
   .rail a { font-size: .82rem; padding: 7px 11px; }
   .chip { font-size: .72rem; }
 }
