@@ -104,3 +104,16 @@ test('phone width: filter wraps, no horizontal scroll', async () => {
     assert.ok(await page.evaluate(`document.documentElement.scrollWidth <= document.documentElement.clientWidth`));
   });
 });
+
+test('indoor paper shows its rebuilt 16:10 figure', async () => {
+  await withPage({}, async page => {
+    const img = await page.evaluate(`(async () => {
+      const a = [...document.querySelectorAll('article.pub')].find(a => a.textContent.includes('Sub-Millisecond'));
+      const im = a.querySelector('img.pub-thumb');
+      if (!im.complete) await new Promise(r => im.onload = r);
+      return { src: im.getAttribute('src'), w: im.naturalWidth, h: im.naturalHeight };
+    })()`);
+    assert.equal(img.src, '/images/fig-indoor-rf.png');
+    assert.deepEqual([img.w, img.h], [1200, 750]);
+  });
+});

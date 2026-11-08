@@ -1,7 +1,7 @@
 ---
 title:  "Sub-Millisecond, Microjoule Edge Inference for Indoor Environment Identification via Layer-Wise Mixed-Precision Quantization"
 date:   2026-07-06 09:00:00 +00:00
-image: /images/Indoor.jpg
+image: /images/fig-indoor-rf.png
 author: "Hamza A. Abushahla"
 authors: "<strong>Hamza A. Abushahla</strong>, Muhammed Noshin, Mohamed I. AlHajri, and Nazar T. Ali"
 venue: "IEEE Internet of Things Journal"
