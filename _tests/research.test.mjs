@@ -8,7 +8,7 @@ test('research page renders all 11 papers', async () => {
   });
 });
 
-test('every paper has ≥3 area chips, after the summary', async () => {
+test('every paper has area chips, after the summary', async () => {
   await withPage({}, async page => {
     const rows = await page.evaluate(`[...document.querySelectorAll('article.pub')].map(a => {
       const body = a.querySelector('.entry-body');
@@ -16,15 +16,15 @@ test('every paper has ≥3 area chips, after the summary', async () => {
       return { n: chips.length, last: body.lastElementChild.classList.contains('pub-areas'),
                attr: (a.dataset.areas || '').split(' ').filter(Boolean).length };
     })`);
-    for (const r of rows) { assert.ok(r.n >= 3); assert.ok(r.last); assert.equal(r.attr, r.n); }
+    for (const r of rows) { assert.ok(r.n >= 1); assert.ok(r.last); assert.equal(r.attr, r.n); }
   });
 });
 
-test('indoor paper carries its five areas', async () => {
+test('indoor paper carries its four areas', async () => {
   await withPage({}, async page => {
     const areas = await page.evaluate(`[...document.querySelectorAll('article.pub')]
       .find(a => a.textContent.includes('Sub-Millisecond')).dataset.areas`);
-    assert.equal(areas, 'wireless-communications radio edge-ai quantization microcontrollers');
+    assert.equal(areas, 'wireless-communications edge-ai quantization microcontrollers');
   });
 });
 
@@ -56,9 +56,10 @@ test('every paper area has a pill (catches front-matter typos)', async () => {
   });
 });
 
-test('Diffusion is not offered as an area', async () => {
+test('only the consolidated areas are offered', async () => {
   await withPage({}, async page => {
-    assert.equal(await page.evaluate(`document.querySelectorAll('[data-area="diffusion"]').length`), 0);
+    assert.equal(await page.evaluate(`document.querySelectorAll('.area-pill[data-area]:not([data-area=""])').length`), 11);
+    assert.equal(await page.evaluate(`document.querySelectorAll('[data-area="radio"], [data-area="cognitive-radio"], [data-area="privacy"], [data-area="arabic-manuscripts"]').length`), 0);
   });
 });
 

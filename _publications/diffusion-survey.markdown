@@ -9,6 +9,6 @@ code:
 paper: 
 status: project
 domain: Generative
-areas: ["Generative Models", "Synthetic Data", "Survey"]
+areas: ["Generative Models", "Survey"]
 ---
 The survey offers a systematic, data-driven review of diffusion-based generative models for synthetic sequential data published between 2023 and 2025, organizing existing approaches by sequence dimensionality, cardinality, and structural complexity, and examining recent work in terms of architectures, training strategies, and evaluation practices. It identifies common challenges, highlights gaps in current research, and outlines future directions to improve applicability, robustness, and cross-domain generalization.

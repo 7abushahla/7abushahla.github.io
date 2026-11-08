@@ -21,7 +21,7 @@ the rest of the site.
 
 ## Goals
 
-1. Each paper shows **at least 3 area tags** as chips.
+1. Each paper shows its broad **area tags** as chips (Hamza later consolidated to 11 broad areas and dropped the ≥3 minimum).
 2. A **filter bar** at the top of the page lets a visitor click an area to see
    only the papers tagged with it. With nothing selected, everything shows.
    This is modeled on the category buttons of the QuantizationSurvey site.
@@ -86,17 +86,17 @@ the rest of the site.
 
 | Paper (file in `_publications/`) | Areas |
 |---|---|
-| `indoor-rf` | Wireless Communications · Radio · Edge AI · Quantization · Microcontrollers |
-| `writer-id` | Arabic Manuscripts · Document Analysis · Computer Vision |
-| `ids-iot` | Network Security · IoT · Edge AI |
+| `indoor-rf` | Wireless Communications · Edge AI · Quantization · Microcontrollers |
+| `writer-id` | Document Analysis · Computer Vision |
+| `ids-iot` | Network Security · Edge AI |
 | `mcu-quantization-survey` | Quantization · Edge AI · Microcontrollers · Survey |
-| `qat-spectrum` | Cognitive Radio · Wireless Communications · Edge AI · Quantization |
-| `student-engagement` | Computer Vision · Edge AI · Privacy |
-| `spectrum-sdp` | Cognitive Radio · Wireless Communications · Edge AI |
-| `arabic-htr` | Arabic Manuscripts · Document Analysis · Computer Vision |
-| `crl-survey` | Reinforcement Learning · Continual Learning · Survey |
-| `crl-webots` | Reinforcement Learning · Continual Learning · Robotics |
-| `diffusion-survey` | Generative Models · Synthetic Data · Survey |
+| `qat-spectrum` | Wireless Communications · Edge AI · Quantization · Microcontrollers |
+| `student-engagement` | Computer Vision · Edge AI |
+| `spectrum-sdp` | Wireless Communications · Edge AI |
+| `arabic-htr` | Document Analysis · Computer Vision |
+| `crl-survey` | Reinforcement Learning · Survey |
+| `crl-webots` | Reinforcement Learning · Robotics |
+| `diffusion-survey` | Generative Models · Survey |
 
 Hamza accepted the draft list and the additions that bring every paper to his
 "at least 3" rule (Computer Vision on `arabic-htr`, "Survey" on the three

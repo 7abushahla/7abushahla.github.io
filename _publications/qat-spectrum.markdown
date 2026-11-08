@@ -9,7 +9,7 @@ paper: https://ieeexplore.ieee.org/document/11048877
 code: https://github.com/7abushahla/Spectrum-Sensing
 status: published
 domain: Radio
-areas: ["Cognitive Radio", "Wireless Communications", "Edge AI", "Quantization"]
+areas: ["Wireless Communications", "Edge AI", "Quantization", "Microcontrollers"]
 impact: ["Q1", "IF 4.4", "93rd percentile"]
 ---
 

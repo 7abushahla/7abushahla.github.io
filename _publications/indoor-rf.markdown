@@ -9,7 +9,7 @@ paper: https://ieeexplore.ieee.org/abstract/document/11595815
 code: https://github.com/M-Noshin/Indoor-Environment-Quantization
 status: published
 domain: Indoor RF
-areas: ["Wireless Communications", "Radio", "Edge AI", "Quantization", "Microcontrollers"]
+areas: ["Wireless Communications", "Edge AI", "Quantization", "Microcontrollers"]
 impact: ["Q1", "IF 8.9", "97th percentile"]
 ---
 

@@ -11,6 +11,6 @@ poster: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Poster
 slides: https://github.com/7abushahla/Spectrum-Sensing-SDP/blob/main/docs/Slides.pptx
 status: project
 domain: Radio
-areas: ["Cognitive Radio", "Wireless Communications", "Edge AI"]
+areas: ["Wireless Communications", "Edge AI"]
 ---
 This was my B.Sc. in Computer Engineering Senior Design Project, focused on spectrum sensing and allocation using a low-complexity deep learning-based (CNN) spectrum sensing algorithm. The project involved developing and quantizing the CNN model, which was deployed on hardware for real-time operation. The solution was demonstrated both in simulation and on hardware, utilizing a Raspberry Pi as the central node, RTL-SDR for signal sensing, and LoRa transceivers for communication. This dual demonstration validated the practicality and efficiency of the approach in addressing dynamic spectrum management challenges.

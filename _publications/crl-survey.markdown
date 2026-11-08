@@ -9,6 +9,6 @@ code:
 paper: 
 status: project
 domain: Continual RL
-areas: ["Reinforcement Learning", "Continual Learning", "Survey"]
+areas: ["Reinforcement Learning", "Survey"]
 ---
 This survey provides a systematic, up-to-date review of CRL from 2022–2025, outlining the field’s conceptual foundations, proposing a taxonomy of recent methods by core mechanisms, and critically analyzing current benchmarks, metrics, and evaluation protocols, with particular focus on open challenges such as unified evaluation criteria, ecological validity, and assessment in multi-agent and interactive settings.
