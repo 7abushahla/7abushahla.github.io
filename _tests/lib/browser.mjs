@@ -1,7 +1,7 @@
 // Minimal headless-Chrome driver over the DevTools protocol (no dependencies).
 // withPage(opts, fn) loads a page from SITE_URL and hands fn a tiny page API.
 import { spawn } from 'node:child_process';
-import { mkdtempSync, readFileSync, existsSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -87,6 +87,15 @@ export async function withPage(opts, fn) {
         const r = await cdp.send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
         if (r.exceptionDetails) throw new Error(`evaluate failed: ${r.exceptionDetails.exception?.description || r.exceptionDetails.text}`);
         return r.result.value;
+      },
+      // Full-page PNG, for visual checks.
+      async screenshot(file) {
+        const { cssContentSize } = await cdp.send('Page.getLayoutMetrics');
+        const shot = await cdp.send('Page.captureScreenshot', {
+          format: 'png', captureBeyondViewport: true,
+          clip: { x: 0, y: 0, width, height: Math.ceil(cssContentSize.height), scale: 1 },
+        });
+        writeFileSync(file, Buffer.from(shot.data, 'base64'));
       },
       async click(selector) {
         await page.evaluate(`(() => { const el = document.querySelector(${JSON.stringify(selector)});

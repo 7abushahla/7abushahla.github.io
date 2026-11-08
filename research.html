@@ -9,8 +9,17 @@ permalink: /research/
 {% assign submitted = site.publications | where: "status", "submitted" | sort: "date" | reverse %}
 {% assign projects  = site.publications | where: "status", "project"   | sort: "date" | reverse %}
 
+{% comment %} Area filter: hidden until research-filter.js runs, so no-JS visitors just see every paper. {% endcomment %}
+<nav class="area-filter" aria-label="Filter by area" hidden>
+  <span class="mono">Filter by area</span>
+  <button type="button" class="area-pill" data-area="">All<span class="n"></span></button>
+  {%- for a in site.data.research_areas %}
+  <button type="button" class="area-pill" data-area="{{ a | slugify }}">{{ a }}<span class="n"></span></button>
+  {%- endfor %}
+</nav>
+
 {% if published.size > 0 %}
-<section class="band">
+<section class="band" data-section>
   {% include section.html title="Publications" blurb="These are papers that have already been published." id="publications" %}
   <div class="entries">
     {% for p in published %}{% include publication.html p=p %}{% endfor %}
@@ -19,7 +28,7 @@ permalink: /research/
 {% endif %}
 
 {% if accepted.size > 0 %}
-<section class="band">
+<section class="band" data-section>
   {% include section.html title="Accepted Papers" blurb="These are papers that have been accepted for publication, but are not yet up." id="accepted" %}
   <div class="entries">
     {% for p in accepted %}{% include publication.html p=p %}{% endfor %}
@@ -28,7 +37,7 @@ permalink: /research/
 {% endif %}
 
 {% if submitted.size > 0 %}
-<section class="band">
+<section class="band" data-section>
   {% include section.html title="Submitted Papers" blurb="These are papers that have been submitted for publication, but have not yet been released." id="submitted" %}
   <div class="entries">
     {% for p in submitted %}{% include publication.html p=p %}{% endfor %}
@@ -37,10 +46,12 @@ permalink: /research/
 {% endif %}
 
 {% if projects.size > 0 %}
-<section class="band">
+<section class="band" data-section>
   {% include section.html title="Research Projects" blurb="These include coursework, side projects and unpublished research work." id="projects" %}
   <div class="entries">
     {% for p in projects %}{% include publication.html p=p %}{% endfor %}
   </div>
 </section>
 {% endif %}
+
+<script src="{{ '/assets/js/research-filter.js' | relative_url }}" defer></script>

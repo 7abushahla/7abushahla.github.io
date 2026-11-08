@@ -588,6 +588,42 @@ a {
 }
 .chip.is-on { color: var(--live); border-color: var(--live); background: var(--live-soft); }
 
+/* Research area filter (shown by research-filter.js). */
+.area-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin: 18px 0 8px;
+
+  &[hidden] { display: none; }
+  .mono { margin-right: 6px; }
+}
+
+.area-pill {
+  font-family: var(--font-display);
+  font-size: .78rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 11px;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+
+  &:hover { color: var(--live); border-color: var(--live); }
+  &:focus-visible { outline: 2px solid var(--live); outline-offset: 2px; }
+  &.is-on { background: var(--live); border-color: var(--live); color: var(--paper); }
+  .n { font-family: var(--font-mono); font-size: .68rem; opacity: .65; margin-left: 5px; }
+}
+
+/* Filtering hides entries and whole sections; rules follow what's visible. */
+.pub[hidden], .band[hidden] { display: none; }
+.entries > .is-last { border-bottom: 0; }
+.band.is-first { border-top: 0; }
+
 .links { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .links a {

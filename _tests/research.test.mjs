@@ -36,3 +36,71 @@ test('existing entry parts are unchanged', async () => {
     assert.ok(await page.evaluate(`!!document.querySelector('.pub .links a') && !!document.querySelector('.pub .pub-summary')`));
   });
 });
+
+const visible = `[...document.querySelectorAll('article.pub')].filter(a => !a.hidden).length`;
+
+test('filter bar shows All + one pill per area, with counts', async () => {
+  await withPage({}, async page => {
+    assert.equal(await page.evaluate(`document.querySelector('.area-filter').hidden`), false);
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""] .n').textContent`), '11');
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').textContent`), '6');
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""]').getAttribute('aria-pressed')`), 'true');
+  });
+});
+
+test('every paper area has a pill (catches front-matter typos)', async () => {
+  await withPage({}, async page => {
+    const missing = await page.evaluate(`[...document.querySelectorAll('.pub-areas [data-area]')]
+      .map(c => c.dataset.area).filter(s => !document.querySelector('.area-pill[data-area="'+s+'"]'))`);
+    assert.deepEqual(missing, []);
+  });
+});
+
+test('selecting an area filters papers and hides empty sections', async () => {
+  await withPage({}, async page => {
+    await page.click('.area-pill[data-area="network-security"]');
+    assert.equal(await page.evaluate(visible), 1);
+    assert.equal(await page.evaluate(`document.querySelector('[data-section]:last-of-type').hidden`), true); // Research Projects
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="network-security"]').getAttribute('aria-pressed')`), 'true');
+  });
+});
+
+test('clicking the active pill, or a paper chip twice, returns to All', async () => {
+  await withPage({}, async page => {
+    await page.click('.area-pill[data-area="edge-ai"]');
+    assert.equal(await page.evaluate(visible), 6);
+    await page.click('.area-pill[data-area="edge-ai"]');
+    assert.equal(await page.evaluate(visible), 11);
+    await page.click('.pub-areas [data-area="survey"]');
+    assert.equal(await page.evaluate(visible), 3);
+    assert.equal(await page.evaluate(`document.querySelectorAll('.pub-areas .chip.is-on').length`), 3);
+    await page.click('.pub-areas .chip.is-on');
+    assert.equal(await page.evaluate(visible), 11);
+  });
+});
+
+test('rules follow the visible entries, not the DOM', async () => {
+  await withPage({}, async page => {
+    await page.click('.area-pill[data-area="reinforcement-learning"]'); // only projects match
+    const r = await page.evaluate(`(() => {
+      const sec = [...document.querySelectorAll('[data-section]')].find(s => !s.hidden);
+      const pubs = [...sec.querySelectorAll('article.pub')].filter(a => !a.hidden);
+      return { top: getComputedStyle(sec).borderTopWidth,
+               bottom: getComputedStyle(pubs.at(-1)).borderBottomWidth };
+    })()`);
+    assert.equal(r.top, '0px'); assert.equal(r.bottom, '0px');
+  });
+});
+
+test('no JavaScript: all papers visible, filter hidden', async () => {
+  await withPage({ js: false }, async page => {
+    assert.equal(await page.evaluate(visible), 11);
+    assert.equal(await page.evaluate(`document.querySelector('.area-filter').hidden`), true);
+  });
+});
+
+test('phone width: filter wraps, no horizontal scroll', async () => {
+  await withPage({ width: 375 }, async page => {
+    assert.ok(await page.evaluate(`document.documentElement.scrollWidth <= document.documentElement.clientWidth`));
+  });
+});
