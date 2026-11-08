@@ -122,6 +122,7 @@ const REBUILT = [
   ['Sub-Millisecond', '/images/fig-indoor-rf.png'],
   ['Different Strokes', '/images/fig-writer-id.png'],
   ['From Sensor to Server', '/images/fig-ids-iot.png'],
+  ['Neural Network Quantization for Microcontrollers', '/images/fig-mcu-quantization-survey.png'],
 ];
 
 for (const [titleWord, src] of REBUILT) {

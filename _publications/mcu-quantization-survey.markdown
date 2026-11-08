@@ -1,7 +1,7 @@
 ---
 title:  "Neural Network Quantization for Microcontrollers: A Comprehensive Review of Methods, Platforms, and Applications"
 date:   2025-08-17 09:00:00 +00:00
-image: /images/Quant-Review.jpg
+image: /images/fig-mcu-quantization-survey.png
 author: "Hamza A. Abushahla"
 authors: "<strong>Hamza A. Abushahla</strong>, Dara Varam, Ariel J. N. Panopio, and Mohamed I. AlHajri"
 venue: "arXiv preprint"
