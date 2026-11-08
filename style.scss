@@ -541,8 +541,8 @@ a {
   strong { color: var(--ink); font-weight: 600; }
 }
 
-.pub-venue { font-size: .88rem; color: var(--ink); margin-bottom: 10px; }
-.pub-venue em { color: var(--live); }   /* the venue name itself in the site accent */
+.pub-venue { font-size: .88rem; color: var(--ink-2); margin-bottom: 10px; }   /* year and metrics in grey */
+.pub-venue em { color: var(--live); font-weight: 600; }   /* the venue name itself: site accent, bold */
 
 .pub-metrics { color: var(--ink-2); font-family: var(--font-display); font-size: .8rem; }
 
