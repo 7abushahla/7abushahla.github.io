@@ -145,6 +145,7 @@ const REBUILT = [
   ['From Sensor to Server', '/images/fig-ids-iot.png'],
   ['Neural Network Quantization for Microcontrollers', '/images/fig-mcu-quantization-survey.png'],
   ['Cognitive Radio Spectrum Sensing on the Edge', '/images/fig-qat-spectrum.png'],
+  ['Real-Time Student Engagement', '/images/fig-student-engagement.png'],
 ];
 
 for (const [titleWord, src] of REBUILT) {
