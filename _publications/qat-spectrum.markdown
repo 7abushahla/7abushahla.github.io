@@ -7,6 +7,7 @@ authors: "<strong>Hamza A. Abushahla</strong>, Dara Varam, Mohamed I. AlHajri"
 venue: "IEEE Communications Letters"
 paper: https://ieeexplore.ieee.org/document/11048877
 code: https://github.com/7abushahla/Spectrum-Sensing
+video: https://daravaram.github.io/video-library/spectrum-sensing/
 status: published
 domain: Radio
 areas: ["Wireless Communications", "Edge AI", "Quantization", "Microcontrollers"]

@@ -202,10 +202,33 @@ test('Kumrah project entry: ongoing label, org venue, no author line, four areas
   });
 });
 
-test('Autonomous Systems is offered right after Computer Vision', async () => {
+test('filter pills run from most to fewest entries, All first, ties in data order', async () => {
   await withPage({}, async page => {
-    const order = await page.evaluate(`[...document.querySelectorAll('.area-pill[data-area]')].map(p => p.dataset.area)`);
-    assert.equal(order[order.indexOf('computer-vision') + 1], 'autonomous-systems');
+    const pills = await page.evaluate(`[...document.querySelectorAll('.area-pill')]
+      .filter(p => getComputedStyle(p).display !== 'none')
+      .map(p => ({ slug: p.dataset.area, n: +p.querySelector('.n').textContent }))`);
+    assert.equal(pills[0].slug, '');
+    const counts = pills.slice(1).map(p => p.n);
+    assert.deepEqual(counts, [...counts].sort((x, y) => y - x));
+    assert.deepEqual(pills.slice(1, 3).map(p => p.slug), ['edge-ai', 'quantization']); // tie at 6 keeps data order
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="autonomous-systems"] .n').textContent`), '1');
+  });
+});
+
+test('spectrum sensing paper links its video', async () => {
+  await withPage({}, async page => {
+    const v = await page.evaluate(`(() => { const a = [...document.querySelectorAll('article.pub')]
+      .find(a => a.textContent.includes('Cognitive Radio Spectrum Sensing'));
+      const l = [...a.querySelectorAll('.links a')].find(l => l.textContent.trim() === 'Video');
+      return l && { href: l.getAttribute('href'), icon: !!l.querySelector('i.fa-solid.fa-video') }; })()`);
+    assert.deepEqual(v, { href: 'https://daravaram.github.io/video-library/spectrum-sensing/', icon: true });
+  });
+});
+
+test('Paper links use a page icon, not a PDF icon (they open the publisher page)', async () => {
+  await withPage({}, async page => {
+    const r = await page.evaluate(`(() => { const ls = [...document.querySelectorAll('.pub .links a')].filter(l => l.textContent.trim() === 'Paper');
+      return { n: ls.length, page: ls.filter(l => l.querySelector('i.fa-file-lines')).length, pdf: ls.filter(l => l.querySelector('i.fa-file-pdf')).length }; })()`);
+    assert.ok(r.n > 0); assert.equal(r.page, r.n); assert.equal(r.pdf, 0);
   });
 });

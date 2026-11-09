@@ -38,14 +38,15 @@
     </p>
 
     {% assign has_links = false %}
-    {% if p.paper or p.code or p.arxiv or p.poster or p.slides or p.website %}{% assign has_links = true %}{% endif %}
+    {% if p.paper or p.code or p.arxiv or p.poster or p.slides or p.video or p.website %}{% assign has_links = true %}{% endif %}
     {% if has_links %}
       <div class="links">
-        {% if p.paper %}<a href="{{ p.paper }}"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>Paper</a>{% endif %}
+        {% if p.paper %}<a href="{{ p.paper }}"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Paper</a>{% endif %}
         {% if p.arxiv %}<a href="{{ p.arxiv }}"><i class="ai ai-arxiv" aria-hidden="true"></i>arXiv</a>{% endif %}
         {% if p.code %}<a href="{{ p.code }}"><i class="fa-solid fa-code" aria-hidden="true"></i>Code</a>{% endif %}
         {% if p.poster %}<a href="{{ p.poster }}"><i class="fa-solid fa-image" aria-hidden="true"></i>Poster</a>{% endif %}
         {% if p.slides %}<a href="{{ p.slides }}"><i class="fa-solid fa-display" aria-hidden="true"></i>Slides</a>{% endif %}
+        {% if p.video %}<a href="{{ p.video }}"><i class="fa-solid fa-video" aria-hidden="true"></i>Video</a>{% endif %}
         {% if p.website %}<a href="{{ p.website }}"><i class="fa-solid fa-globe" aria-hidden="true"></i>Webpage</a>{% endif %}
       </div>
     {% endif %}

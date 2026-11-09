@@ -1,4 +1,4 @@
-# Research areas, in filter-bar order (most-used first).
+# Research areas. The filter bar sorts them by entry count (most first); ties keep this order.
 # Each publication lists its areas in front matter under `areas:`; names must match these exactly.
 - Edge AI
 - Quantization

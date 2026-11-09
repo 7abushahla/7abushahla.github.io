@@ -21,7 +21,15 @@
     if (out) { out.textContent = String(n); out.setAttribute('aria-label', ' (' + n + (n === 1 ? ' entry)' : ' entries)')); }
     // An area with no visible paper (e.g. while some entries are unpublished) is not offered.
     if (n === 0) pill.hidden = true;
+    pill._n = n;
   });
+
+  // Most-used areas first; All stays first and ties keep the data-file order.
+  var box = nav.querySelector('.area-pills');
+  pills.slice(1)
+    .map(function (pill, i) { return { pill: pill, i: i }; })
+    .sort(function (a, b) { return (b.pill._n - a.pill._n) || (a.i - b.i); })
+    .forEach(function (o) { box.appendChild(o.pill); });
 
   var status = nav.querySelector('[data-filter-status]');
 
