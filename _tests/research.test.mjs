@@ -232,3 +232,13 @@ test('Paper links use a page icon, not a PDF icon (they open the publisher page)
     assert.ok(r.n > 0); assert.equal(r.page, r.n); assert.equal(r.pdf, 0);
   });
 });
+
+test('survey paper links its website', async () => {
+  await withPage({}, async page => {
+    const href = await page.evaluate(`(() => { const a = [...document.querySelectorAll('article.pub')]
+      .find(a => a.textContent.includes('Neural Network Quantization for Microcontrollers'));
+      const l = [...a.querySelectorAll('.links a')].find(l => l.querySelector('i.fa-globe'));
+      return l && l.getAttribute('href'); })()`);
+    assert.equal(href, 'https://daravaram.github.io/QuantizationSurvey/');
+  });
+});

@@ -7,6 +7,7 @@ authors: "<strong>Hamza A. Abushahla</strong>, Dara Varam, Ariel J. N. Panopio, 
 venue: "arXiv preprint"
 paper: https://arxiv.org/abs/2508.15008
 code:
+website: https://daravaram.github.io/QuantizationSurvey/
 status: published
 domain: Microcontrollers
 areas: ["Quantization", "Edge AI", "Microcontrollers", "Survey"]
