@@ -4,9 +4,12 @@ title: Research & Projects
 permalink: /work/
 ---
 
-{% comment %} Papers of every status in one list (the status shows on each entry); projects below. {% endcomment %}
+{% comment %} Papers of every status in one list (the status shows on each entry).
+   Projects split by `track`: academic research projects, then industry R&D (track: industry). {% endcomment %}
 {% assign papers   = site.publications | where_exp: "p", "p.status != 'project'" | sort: "date" | reverse %}
-{% assign projects = site.publications | where: "status", "project" | sort: "date" | reverse %}
+{% assign projects = site.publications | where: "status", "project" %}
+{% assign research_projects = projects | where_exp: "p", "p.track != 'industry'" | sort: "date" | reverse %}
+{% assign industry_projects = projects | where: "track", "industry" | sort: "date" | reverse %}
 
 {% comment %} Area filter: hidden until research-filter.js runs, so no-JS visitors just see every paper. {% endcomment %}
 <nav class="area-filter" role="group" aria-label="Filter by area" hidden>
@@ -29,11 +32,20 @@ permalink: /work/
 </section>
 {% endif %}
 
-{% if projects.size > 0 %}
-<section class="band" data-section="projects">
-  {% include section.html title="Projects" blurb="Research and development outside academic publishing." id="projects" %}
+{% if research_projects.size > 0 %}
+<section class="band" data-section="research-projects">
+  {% include section.html title="Research Projects" blurb="Ongoing academic research that is not yet published." id="research-projects" %}
   <div class="entries">
-    {% for p in projects %}{% include publication.html p=p %}{% endfor %}
+    {% for p in research_projects %}{% include publication.html p=p %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if industry_projects.size > 0 %}
+<section class="band" data-section="industry">
+  {% include section.html title="Industry Research &amp; Development" blurb="Research and development carried out with industry." id="industry" %}
+  <div class="entries">
+    {% for p in industry_projects %}{% include publication.html p=p %}{% endfor %}
   </div>
 </section>
 {% endif %}

@@ -88,7 +88,7 @@ test('selecting an area filters papers and hides empty sections', async () => {
     await page.click('.area-pill[data-area="network-security"]');
     assert.equal(await page.evaluate(visible), 1);
     const shown = await page.evaluate(`[...document.querySelectorAll('[data-section]')].filter(s => getComputedStyle(s).display !== 'none').map(s => s.dataset.section)`);
-    assert.deepEqual(shown, ['research']); // Projects has no Network Security entry, so it hides
+    assert.deepEqual(shown, ['research']); // the industry section has no Network Security entry, so it hides
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="network-security"]').getAttribute('aria-pressed')`), 'true');
   });
 });
@@ -175,11 +175,11 @@ test('nav tab says Work and is current; page heading is Research & Projects', as
   });
 });
 
-test('two sections: Research holds every paper, Projects sits below it', async () => {
+test('Research holds every paper; Industry Research & Development below; empty Research Projects not shown', async () => {
   await withPage({}, async page => {
     const r = await page.evaluate(`[...document.querySelectorAll('[data-section]')].map(s => ({
       key: s.dataset.section, title: s.querySelector('h2').textContent.trim(), n: s.querySelectorAll('article.pub').length }))`);
-    assert.deepEqual(r, [{ key: 'research', title: 'Research', n: 6 }, { key: 'projects', title: 'Projects', n: 1 }]);
+    assert.deepEqual(r, [{ key: 'research', title: 'Research', n: 6 }, { key: 'industry', title: 'Industry Research & Development', n: 1 }]);
   });
 });
 
@@ -191,14 +191,14 @@ test('the old /research/ address lands on /work/', async () => {
   });
 });
 
-test('Kumrah project entry: R&D label, org venue, no author line, four areas', async () => {
+test('Kumrah project entry: ongoing label, org venue, no author line, four areas', async () => {
   await withPage({}, async page => {
-    const r = await page.evaluate(`(() => { const a = document.querySelector('[data-section="projects"] article.pub');
+    const r = await page.evaluate(`(() => { const a = document.querySelector('[data-section="industry"] article.pub');
       return { label: a.querySelector('.entry-date span').textContent.trim(),
                venue: a.querySelector('.pub-venue').textContent.replace(/\\s+/g, ' ').trim(),
                authors: !!a.querySelector('.pub-authors'), areas: a.dataset.areas }; })()`);
-    assert.deepEqual(r, { label: 'industry r&d', venue: 'Kumrah AI · Drone Leaf, Jun 2026 – present', authors: false,
-      areas: 'computer-vision quantization edge-ai autonomous-systems' });
+    assert.deepEqual(r, { label: 'ongoing', venue: 'Kumrah AI · Drone Leaf, Jun 2026 – present', authors: false,
+      areas: 'autonomous-systems computer-vision quantization edge-ai' });
   });
 });
 
