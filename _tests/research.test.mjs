@@ -24,7 +24,7 @@ test('indoor paper carries its four areas', async () => {
   await withPage({}, async page => {
     const areas = await page.evaluate(`[...document.querySelectorAll('article.pub')]
       .find(a => a.textContent.includes('Sub-Millisecond')).dataset.areas`);
-    assert.equal(areas, 'wireless-communications edge-ai quantization microcontrollers');
+    assert.equal(areas, 'wireless-communications edge-ai model-compression microcontrollers');
   });
 });
 
@@ -44,7 +44,7 @@ test('filter bar shows All + one pill per area, with counts', async () => {
     assert.notEqual(await page.evaluate(`getComputedStyle(document.querySelector('.area-filter')).display`), 'none');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""] .n').textContent`), '7');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').textContent`), '6');
-    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="quantization"] .n').textContent`), '6');
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="model-compression"] .n').textContent`), '6');
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area=""]').getAttribute('aria-pressed')`), 'true');
   });
 });
@@ -70,7 +70,7 @@ test('every paper area has a pill (catches front-matter typos)', async () => {
 test('only the consolidated areas are offered', async () => {
   await withPage({}, async page => {
     assert.equal(await page.evaluate(`document.querySelectorAll('.area-pill[data-area]:not([data-area=""])').length`), 12);
-    assert.equal(await page.evaluate(`document.querySelectorAll('[data-area="radio"], [data-area="cognitive-radio"], [data-area="privacy"], [data-area="arabic-manuscripts"]').length`), 0);
+    assert.equal(await page.evaluate(`document.querySelectorAll('[data-area="radio"], [data-area="cognitive-radio"], [data-area="privacy"], [data-area="arabic-manuscripts"], [data-area="quantization"]').length`), 0);
   });
 });
 
@@ -198,7 +198,7 @@ test('Kumrah project entry: ongoing label, org venue, no author line, four areas
                venue: a.querySelector('.pub-venue').textContent.replace(/\\s+/g, ' ').trim(),
                authors: !!a.querySelector('.pub-authors'), areas: a.dataset.areas }; })()`);
     assert.deepEqual(r, { label: 'ongoing', venue: 'Kumrah AI · Drone Leaf, Jun 2026 – present', authors: false,
-      areas: 'autonomous-systems computer-vision quantization edge-ai' });
+      areas: 'autonomous-systems computer-vision model-compression edge-ai' });
   });
 });
 
@@ -210,7 +210,7 @@ test('filter pills run from most to fewest entries, All first, ties in data orde
     assert.equal(pills[0].slug, '');
     const counts = pills.slice(1).map(p => p.n);
     assert.deepEqual(counts, [...counts].sort((x, y) => y - x));
-    assert.deepEqual(pills.slice(1, 3).map(p => p.slug), ['edge-ai', 'quantization']); // tie at 6 keeps data order
+    assert.deepEqual(pills.slice(1, 3).map(p => p.slug), ['edge-ai', 'model-compression']); // tie at 6 keeps data order
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="autonomous-systems"] .n').textContent`), '1');
   });
 });
@@ -240,5 +240,14 @@ test('survey paper links its website', async () => {
       const l = [...a.querySelectorAll('.links a')].find(l => l.querySelector('i.fa-globe'));
       return l && l.getAttribute('href'); })()`);
     assert.equal(href, 'https://daravaram.github.io/QuantizationSurvey/');
+  });
+});
+
+test('IoT intrusion detection paper is tagged Microcontrollers', async () => {
+  await withPage({}, async page => {
+    const areas = await page.evaluate(`[...document.querySelectorAll('article.pub')]
+      .find(a => a.textContent.includes('From Sensor to Server')).dataset.areas.split(' ')`);
+    assert.ok(areas.includes('microcontrollers'), areas.join(' '));
+    assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="microcontrollers"] .n').textContent`), '5');
   });
 });

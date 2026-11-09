@@ -10,7 +10,7 @@ code: https://github.com/7abushahla/Spectrum-Sensing
 video: https://daravaram.github.io/video-library/spectrum-sensing/
 status: published
 domain: Radio
-areas: ["Wireless Communications", "Edge AI", "Quantization", "Microcontrollers"]
+areas: ["Wireless Communications", "Edge AI", "Model Compression", "Microcontrollers"]
 impact: ["Q1", "IF 4.4", "93rd percentile"]
 ---
 
