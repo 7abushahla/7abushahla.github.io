@@ -54,7 +54,7 @@ function connect(wsUrl) {
 }
 
 export async function withPage(opts, fn) {
-  const { path = '/research/', width = 1100, height = 900, js = true, theme = 'light' } = opts;
+  const { path = '/work/', width = 1100, height = 900, js = true, theme = 'light' } = opts;
   const base = process.env.SITE_URL;
   if (!base) throw new Error('SITE_URL is not set (run via _tests/run.sh)');
 

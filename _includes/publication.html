@@ -10,7 +10,7 @@
         {%- when 'published' -%}published
         {%- when 'accepted' -%}accepted
         {%- when 'submitted' -%}submitted
-        {%- else -%}{{ p.course | default: "project" }}
+        {%- else -%}{{ p.kind | default: p.course | default: "project" }}
       {%- endcase -%}
     </span>
   </div>
@@ -23,12 +23,14 @@
 
   <div class="entry-body">
     <h3 class="pub-title">{{ p.title }}</h3>
-    <p class="pub-authors">{{ p.authors }}</p>
+    {% if p.authors %}<p class="pub-authors">{{ p.authors }}</p>{% endif %}
     {% if p.note %}<p class="pub-note">{{ p.note }}</p>{% endif %}
 
     <p class="pub-venue">
       {%- if p.venue -%}
         <em>{{ p.venue }}</em>, {{ p.date | date: "%Y" }}
+      {%- elsif p.org -%}
+        <em>{{ p.org }}</em>, {{ p.period }}
       {%- elsif p.course -%}
         <em>{{ p.course }}</em>, {{ p.date | date: "%Y" }}
       {%- endif -%}

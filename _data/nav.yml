@@ -1,8 +1,8 @@
 # Top navigation. Order here is the order on the page.
 - title: About
   url: /
-- title: Research
-  url: /research/
+- title: Work
+  url: /work/
 - title: Experience
   url: /experience/
 - title: Education

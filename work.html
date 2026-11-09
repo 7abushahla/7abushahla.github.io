@@ -1,0 +1,41 @@
+---
+layout: page
+title: Research & Projects
+permalink: /work/
+---
+
+{% comment %} Papers of every status in one list (the status shows on each entry); projects below. {% endcomment %}
+{% assign papers   = site.publications | where_exp: "p", "p.status != 'project'" | sort: "date" | reverse %}
+{% assign projects = site.publications | where: "status", "project" | sort: "date" | reverse %}
+
+{% comment %} Area filter: hidden until research-filter.js runs, so no-JS visitors just see every paper. {% endcomment %}
+<nav class="area-filter" role="group" aria-label="Filter by area" hidden>
+  <span class="mono area-filter-label">Filter by area</span>
+  <div class="area-pills">
+    <button type="button" class="area-pill" data-area="">All<span class="n"></span></button>
+    {%- for a in site.data.research_areas %}
+    <button type="button" class="area-pill" data-area="{{ a | slugify }}">{{ a }}<span class="n"></span></button>
+    {%- endfor %}
+  </div>
+  <span class="sr-only" aria-live="polite" data-filter-status></span>
+</nav>
+
+{% if papers.size > 0 %}
+<section class="band" data-section="research">
+  {% include section.html title="Research" blurb="Papers published, accepted or under review." id="research" %}
+  <div class="entries">
+    {% for p in papers %}{% include publication.html p=p %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if projects.size > 0 %}
+<section class="band" data-section="projects">
+  {% include section.html title="Projects" blurb="Research and development outside academic publishing." id="projects" %}
+  <div class="entries">
+    {% for p in projects %}{% include publication.html p=p %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<script src="{{ '/assets/js/research-filter.js' | relative_url }}" defer></script>

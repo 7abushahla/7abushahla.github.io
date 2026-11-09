@@ -18,7 +18,7 @@
     var slug = pill.getAttribute('data-area');
     var n = slug ? pubs.filter(function (p) { return areasOf(p).indexOf(slug) !== -1; }).length : pubs.length;
     var out = pill.querySelector('.n');
-    if (out) { out.textContent = String(n); out.setAttribute('aria-label', ' (' + n + (n === 1 ? ' paper)' : ' papers)')); }
+    if (out) { out.textContent = String(n); out.setAttribute('aria-label', ' (' + n + (n === 1 ? ' entry)' : ' entries)')); }
     // An area with no visible paper (e.g. while some entries are unpublished) is not offered.
     if (n === 0) pill.hidden = true;
   });
@@ -46,7 +46,7 @@
       var shownCount = pubs.filter(function (p) { return !p.hidden; }).length;
       var pill = slug ? nav.querySelector('.area-pill[data-area="' + slug + '"]') : null;
       var name = pill ? pill.firstChild.textContent : 'all areas';
-      status.textContent = 'Showing ' + shownCount + ' of ' + pubs.length + ' papers: ' + name;
+      status.textContent = 'Showing ' + shownCount + ' of ' + pubs.length + ' entries: ' + name;
     }
 
     var firstShown = true;
