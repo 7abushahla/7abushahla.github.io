@@ -52,7 +52,7 @@ test('filter bar shows All + one pill per area, with counts', async () => {
 test('pills and chips read correctly to assistive tech and in plain text', async () => {
   await withPage({}, async page => {
     assert.equal(await page.evaluate(`document.querySelector('.area-pill[data-area="edge-ai"] .n').getAttribute('aria-label')`), ' (6 entries)');
-    const txt = await page.evaluate(`document.querySelector('.pub-areas').textContent.replace(/\\s+/g, ' ').trim()`);
+    const txt = await page.evaluate(`[...document.querySelectorAll('article.pub')].find(a => a.textContent.includes('Sub-Millisecond')).querySelector('.pub-areas').textContent.replace(/\\s+/g, ' ').trim()`);
     assert.ok(txt.includes('Wireless Communications Edge AI'), txt);
     await page.click('.area-pill[data-area="survey"]');
     assert.equal(await page.evaluate(`document.querySelector('[data-filter-status]').textContent`), 'Showing 1 of 7 entries: Survey');
@@ -175,11 +175,11 @@ test('nav tab says Work and is current; page heading is Research & Projects', as
   });
 });
 
-test('Research holds every paper; Industry Research & Development below; empty Research Projects not shown', async () => {
+test('Industry Research & Development leads, then Research with every paper; empty Research Projects not shown', async () => {
   await withPage({}, async page => {
     const r = await page.evaluate(`[...document.querySelectorAll('[data-section]')].map(s => ({
       key: s.dataset.section, title: s.querySelector('h2').textContent.trim(), n: s.querySelectorAll('article.pub').length }))`);
-    assert.deepEqual(r, [{ key: 'research', title: 'Research', n: 6 }, { key: 'industry', title: 'Industry Research & Development', n: 1 }]);
+    assert.deepEqual(r, [{ key: 'industry', title: 'Industry Research & Development', n: 1 }, { key: 'research', title: 'Research', n: 6 }]);
   });
 });
 
