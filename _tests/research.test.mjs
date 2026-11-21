@@ -175,11 +175,11 @@ test('nav tab says Work and is current; page heading is Research & Projects', as
   });
 });
 
-test('Industry Research & Development leads, then Research with every paper; empty Research Projects not shown', async () => {
+test('Industry Research & Development leads, then Research Papers with every paper; empty Research Projects not shown', async () => {
   await withPage({}, async page => {
     const r = await page.evaluate(`[...document.querySelectorAll('[data-section]')].map(s => ({
       key: s.dataset.section, title: s.querySelector('h2').textContent.trim(), n: s.querySelectorAll('article.pub').length }))`);
-    assert.deepEqual(r, [{ key: 'industry', title: 'Industry Research & Development', n: 1 }, { key: 'research', title: 'Research', n: 6 }]);
+    assert.deepEqual(r, [{ key: 'industry', title: 'Industry Research & Development', n: 1 }, { key: 'research', title: 'Research Papers', n: 6 }]);
   });
 });
 
